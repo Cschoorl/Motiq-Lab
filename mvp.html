@@ -7,23 +7,20 @@
   <meta name="description" content="Doel, scope, techstack, fasering, veiligheid, succescriteria en risico's van de Motiq-MVP.">
   <meta property="og:title" content="MVP · Motiq Lab">
   <meta property="og:description" content="Doel, scope, techstack, fasering, veiligheid, succescriteria en risico's van de Motiq-MVP.">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235451d6'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='800' font-size='17' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1a17'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23fbfaf7' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,450;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#inhoud">Naar de inhoud</a>
 
   <header class="site-header">
-    <nav class="container nav" aria-label="Hoofdmenu">
-      <a class="brand" href="index.html" aria-label="Motiq Lab, naar home">
-        <span class="brand-mark" aria-hidden="true">M</span>
-        <span>Motiq <span class="brand-lab">Lab</span></span>
-      </a>
+    <nav class="wrap nav" aria-label="Hoofdmenu">
+      <a class="brand" href="index.html" aria-label="Motiq Lab, naar home">Motiq <span class="lab">Lab</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
@@ -35,203 +32,146 @@
   </header>
 
   <main id="inhoud">
-    <section class="page-header">
-      <div class="container">
-        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>De MVP · ± 8 weken</span>
-        <h1>Eén ding bewijzen</h1>
-        <p class="lead">Een opdracht in gewone taal wordt zonder handmatig programmeren een werkende robottaak, met een mens die de laatste stap goedkeurt.</p>
-      </div>
-    </section>
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Research note 03</span> · De MVP</span>
+        <h1>Van opdracht in gewone taal naar werkende robottaak</h1>
+        <p class="dek">De MVP bewijst één ding: een opdracht in gewone taal wordt zonder handmatig programmeren een werkende robottaak, met een mens die de laatste stap goedkeurt.</p>
+        <div class="byline"><span><b>Door</b>Motiq Lab</span><span><b>Doorlooptijd</b>± 8 weken</span><span><b>Hardware</b>SO-101</span></div>
+      </div></div>
+    </header>
 
-    <section class="section">
-      <div class="container">
-        <h2>Doel en scope</h2>
-        <blockquote class="example">
-          <span>MVP-opdracht</span>
-          “Sorteer de rode, blauwe en groene blokjes in de bijbehorende bakjes.”
-        </blockquote>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3>In scope</h3>
-            <ul class="check-list">
-              <li>Eén robotarm (SO-101)</li>
-              <li>Eén camera boven de werktafel</li>
-              <li>3 soorten blokjes, 3 bakjes</li>
-              <li>Vaste werktafel en verlichting</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Buiten scope</h3>
-            <ul class="x-list">
-              <li>Echte producten</li>
-              <li>Meerdere robots</li>
-              <li>Bewegende transportbanden</li>
-              <li>Volledig automatisch trainen zonder menselijke demonstraties</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Gebruiker</h3>
-            <p class="muted">De founder zelf, via een simpele webinterface of chat.</p>
-            <p class="small"><a href="hoe-het-werkt.html#architectuur">Bekijk de architectuur →</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Techstack en hardware</h2>
-        <p class="section-intro">Alles hieronder is open source of via een API bruikbaar; alleen de arm, camera en GPU kosten geld.</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">Laag</th><th scope="col">Keuze voor de MVP</th><th scope="col">Waarom</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Planner (agent)</td><td data-label="Keuze voor de MVP">Claude of Gemini Robotics ER via API</td><td data-label="Waarom">Zet de opdracht om in vaardigheden en roept tools aan</td></tr>
-              <tr><td>Koppeling agent ↔ robot</td><td data-label="Keuze voor de MVP">MCP-tools (eigen server, of ROS MCP Server bij ROS)</td><td data-label="Waarom">Agent kan veilig vaste functies aanroepen</td></tr>
-              <tr><td>Robotbesturing</td><td data-label="Keuze voor de MVP">LeRobot</td><td data-label="Waarom">Opnemen, trainen en draaien op de SO-101</td></tr>
-              <tr><td>Robotmodel (VLA)</td><td data-label="Keuze voor de MVP">SmolVLA, fine-tuned</td><td data-label="Waarom">Klein, traint op één GPU</td></tr>
-              <tr><td>Simulatie</td><td data-label="Keuze voor de MVP">MuJoCo of Isaac Lab</td><td data-label="Waarom">Testen en extra data zonder risico</td></tr>
-              <tr><td>Data</td><td data-label="Keuze voor de MVP">Hugging Face Hub (LeRobot-datasets)</td><td data-label="Waarom">Bestaande data + eigen opnames</td></tr>
-              <tr><td>Interface</td><td data-label="Keuze voor de MVP">Simpele webapp</td><td data-label="Waarom">Opdracht invoeren, resultaten zien, goedkeuren</td></tr>
-              <tr><td>Hardware</td><td data-label="Keuze voor de MVP">SO-101 arm (leader + follower), USB-camera, PC met NVIDIA-GPU of cloud-GPU</td><td data-label="Waarom">Goedkoop en goed ondersteund</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="source" style="margin-top:12px">Bronnen: <a href="https://huggingface.co/docs/lerobot/smolvla" target="_blank" rel="noopener">LeRobot SmolVLA</a> · <a href="https://ai.google.dev/gemini-api/docs/robotics-overview" target="_blank" rel="noopener">Gemini Robotics</a> · <a href="https://github.com/robotmcp/ros-mcp-server" target="_blank" rel="noopener">ROS MCP Server</a> · <a href="https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/14-strategy3-cosmos.html" target="_blank" rel="noopener">NVIDIA SO-101 sim-to-real cursus</a></p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Bouwen op LeRobot</h2>
-        <p class="section-intro"><a href="https://github.com/huggingface/lerobot" target="_blank" rel="noopener">LeRobot</a> van Hugging Face is de motor onder Motiq: het regelt robotbesturing, data, modellen en evaluatie, zodat wij ons richten op de agent en de klant. De licentie is Apache 2.0, dus we mogen er commercieel op bouwen.</p>
-        <h3 class="subhead">Wat LeRobot al levert</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">Onderdeel</th><th scope="col">Wat het doet</th><th scope="col">Waar het in ons plan past</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Robot-interface</td><td data-label="Wat het doet">Eén interface voor alle robots, van SO-100/101 tot humanoïden (<a href="https://huggingface.co/docs/lerobot/integrate_hardware" target="_blank" rel="noopener">hardware</a>)</td><td data-label="Waar het in ons plan past">Laag “robotbesturing”</td></tr>
-              <tr><td>LeRobotDataset</td><td data-label="Wat het doet">MP4-video's plus Parquet-bestanden, gedeeld via de Hub (<a href="https://huggingface.co/docs/lerobot/lerobot-dataset-v3" target="_blank" rel="noopener">docs</a>)</td><td data-label="Waar het in ons plan past">Stap 4: data verzamelen</td></tr>
-              <tr><td>Modellen</td><td data-label="Wat het doet">ACT, Diffusion, SmolVLA, Pi0, Pi0.5, GR00T N1.7 en meer (<a href="https://huggingface.co/docs/lerobot/bring_your_own_policies" target="_blank" rel="noopener">modellen</a>)</td><td data-label="Waar het in ons plan past">Stap 3: agent kiest het passende model</td></tr>
-              <tr><td>Evaluatie</td><td data-label="Wat het doet">Testen in simulatie of op echte hardware, met benchmarks als LIBERO en MetaWorld (<a href="https://huggingface.co/docs/lerobot/envhub" target="_blank" rel="noopener">EnvHub</a>)</td><td data-label="Waar het in ons plan past">Stap 6: testen in simulatie</td></tr>
-              <tr><td>Reward models en HIL-SERL</td><td data-label="Wat het doet">Beoordelen of een poging gelukt is; leren met de mens in de lus</td><td data-label="Waar het in ons plan past">Stap 6 en 10: goed/fout loggen en leren van fouten</td></tr>
-              <tr><td>Plugins voor andere armen</td><td data-label="Wat het doet">Universal Robots UR5e, UFACTORY xArm, Franka, ROS 2-bridges en meer (<a href="https://huggingface.co/docs/lerobot/main/third_party_robots" target="_blank" rel="noopener">lijst</a>)</td><td data-label="Waar het in ons plan past">Overstap van SO-101 naar een cobot bij de klant</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="subhead">Wat dit betekent voor ons</h3>
-        <div class="grid grid-3">
-          <div class="card">
-            <h3>Pad naar de klant bestaat al</h3>
-            <p class="muted">Wat we op de SO-101 bouwen, kan via een plugin naar een UR-arm bij een plaatbewerker.</p>
-          </div>
-          <div class="card">
-            <h3>Klaar voor vibecoding</h3>
-            <p class="muted">De repo bevat een CLAUDE.md en AGENTS.md, dus coding agents begrijpen de codebase direct.</p>
-          </div>
-          <div class="card card-accent">
-            <h3>Onze waarde zit erboven</h3>
-            <p class="muted">LeRobot is gereedschap; Motiq is de agent die de hele keten regelt plus een werkend sorteerproces voor één niche.</p>
-          </div>
-        </div>
-        <p class="small muted" style="margin-top:16px">Cursussen en documentatie om mee te leren staan op de <a href="research.html#leren">researchpagina</a>.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Fasering</h2>
-        <p class="section-intro">Reken op ongeveer 8 weken naast ander werk; elke fase eindigt met een poort die we moeten halen voor we doorgaan.</p>
-        <ol class="timeline">
-          <li>
-            <span class="timeline-dot" aria-hidden="true">1</span>
-            <div class="card">
-              <span class="when">Week 1–2</span>
-              <h3>Hardware en basis</h3>
-              <p>SO-101 bouwen en kalibreren, LeRobot installeren, met de leader-arm de follower handmatig besturen.</p>
-              <div class="gate"><strong>Poort</strong><span>De arm is te teleopereren en camerabeelden worden opgenomen.</span></div>
-            </div>
-          </li>
-          <li>
-            <span class="timeline-dot" aria-hidden="true">2</span>
-            <div class="card">
-              <span class="when">Week 2–3</span>
-              <h3>Data verzamelen</h3>
-              <p>50–100 demonstraties opnemen van “pak blokje, leg in bakje”, per kleur, op de Hub zetten.</p>
-              <div class="gate"><strong>Poort</strong><span>Een schone dataset met alle drie de kleuren.</span></div>
-            </div>
-          </li>
-          <li>
-            <span class="timeline-dot" aria-hidden="true">3</span>
-            <div class="card">
-              <span class="when">Week 3–5</span>
-              <h3>Model trainen</h3>
-              <p>SmolVLA fine-tunen op de dataset; eerst één kleur, dan alle drie.</p>
-              <div class="gate"><strong>Poort</strong><span>Minstens 70% geslaagde pogingen voor één kleur op de echte arm.</span></div>
-            </div>
-          </li>
-          <li>
-            <span class="timeline-dot" aria-hidden="true">4</span>
-            <div class="card">
-              <span class="when">Week 5–6</span>
-              <h3>Agentlaag</h3>
-              <p>MCP-tools maken (<code>detecteer_blokjes</code>, <code>voer_vaardigheid_uit</code>, <code>stop</code>), de planner laat de opdracht opsplitsen en tools aanroepen.</p>
-              <div class="gate"><strong>Poort</strong><span>“Sorteer alles” wordt automatisch een correcte reeks stappen.</span></div>
-            </div>
-          </li>
-          <li>
-            <span class="timeline-dot" aria-hidden="true">5</span>
-            <div class="card">
-              <span class="when">Week 6–7</span>
-              <h3>Simulatie en evaluatie</h3>
-              <p>Dezelfde taak in MuJoCo of Isaac Lab, varianten genereren (positie, licht, aantal blokjes), automatisch scoren.</p>
-              <div class="gate"><strong>Poort</strong><span>Een testrapport per versie van het model.</span></div>
-            </div>
-          </li>
-          <li>
-            <span class="timeline-dot" aria-hidden="true">6</span>
-            <div class="card">
-              <span class="when">Week 7–8</span>
-              <h3>Veiligheid, goedkeuring en demo</h3>
-              <p>Goedkeuringsscherm, limieten en noodstop, eindtest op de echte arm.</p>
-              <div class="gate"><strong>Poort</strong><span>De succescriteria hieronder zijn gehaald.</span></div>
-            </div>
-          </li>
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#scope"><span class="n">1</span>Doel en scope</a></li>
+          <li><a href="#techstack"><span class="n">2</span>Techstack en hardware</a></li>
+          <li><a href="#lerobot"><span class="n">3</span>Bouwen op LeRobot</a></li>
+          <li><a href="#fasering"><span class="n">4</span>Fasering</a></li>
+          <li><a href="#veiligheid"><span class="n">5</span>Veiligheid</a></li>
+          <li><a href="#succes"><span class="n">6</span>Succescriteria</a></li>
+          <li><a href="#risicos"><span class="n">7</span>Risico's</a></li>
+          <li><a href="#nu"><span class="n">8</span>Waar we nu staan</a></li>
+          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
         </ol>
-        <div class="callout">
-          <p>De automatische lus “zoek data, genereer scenario's, train opnieuw” komt pas na de MVP: eerst moet het handmatige pad betrouwbaar werken.</p>
-        </div>
-      </div>
-    </section>
+      </aside>
 
-    <section class="section" id="veiligheid">
-      <div class="container">
-        <h2>Veiligheid en menselijke goedkeuring</h2>
-        <p class="section-intro">Veiligheid zit buiten de AI-modellen: geen model mag een beweging uitvoeren die de veiligheidslaag niet toestaat.</p>
-        <div class="grid grid-3">
-          <div class="card"><h3>Harde limieten in code</h3><p class="muted">Maximale snelheid, kracht en een vaste werkruimte (bounding box) waar de arm niet buiten mag.</p></div>
-          <div class="card"><h3>Noodstop</h3><p class="muted">Een fysieke knop die de stroom naar de motoren onderbreekt, plus een <code>stop</code>-tool die de agent altijd mag aanroepen.</p></div>
-          <div class="card"><h3>Alleen vaste tools</h3><p class="muted">De agent kan alleen goedgekeurde functies aanroepen, nooit vrije motorcommando's sturen.</p></div>
-          <div class="card card-accent"><h3>Goedkeuringsscherm</h3><p class="muted">Vóór uitvoering zie je het plan, de testscore uit simulatie en de modelversie; pas na jouw klik draait het op de echte arm.</p></div>
-          <div class="card"><h3>Logboek</h3><p class="muted">Elke opdracht, elk plan en elke uitvoering wordt opgeslagen, zodat je fouten kunt terugzien.</p></div>
-        </div>
-        <div class="callout">
-          <p>Google raadt zelf af om zijn robotica-modellen te gebruiken waar een storing letsel of schade kan veroorzaken (<a href="https://www.unite.ai/?p=444299" target="_blank" rel="noopener">bron</a>). Daarom houden we de MVP bij lichte blokjes en zonder mensen binnen bereik van de arm.</p>
-        </div>
-      </div>
-    </section>
+      <article class="content">
+        <section id="scope">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Een SO-101-arm met één camera leert gekleurde blokjes sorteren op basis van 50–100 demonstraties. We fine-tunen SmolVLA met LeRobot, laten een planner-agent de opdracht opsplitsen via MCP-tools, en zetten een veiligheidslaag met menselijke goedkeuring vóór de echte arm. Doel: minstens 80% van de blokjes in het juiste bakje.</p>
+          </div>
+          <h2><span class="n">1</span>Doel en scope</h2>
+          <p>De MVP-opdracht:</p>
+          <p class="pull">Sorteer de rode, blauwe en groene blokjes in de bijbehorende bakjes.</p>
+          <div class="cols">
+            <div>
+              <h3>In scope</h3>
+              <ul class="ticks">
+                <li>Eén robotarm (SO-101)</li>
+                <li>Eén camera boven de werktafel</li>
+                <li>3 soorten blokjes, 3 bakjes</li>
+                <li>Vaste werktafel en verlichting</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Buiten scope</h3>
+              <ul class="crosses">
+                <li>Echte producten</li>
+                <li>Meerdere robots</li>
+                <li>Bewegende transportbanden</li>
+                <li>Volledig automatisch trainen zonder menselijke demonstraties</li>
+              </ul>
+            </div>
+          </div>
+          <p><strong>Gebruiker:</strong> de founder zelf, via een simpele webinterface of chat. De architectuur staat in <a href="hoe-het-werkt.html#architectuur">Research note 01, figuur 2</a>.</p>
+        </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Succescriteria</h2>
-        <p class="section-intro">De MVP is geslaagd als deze lijst is afgevinkt; de getallen zijn startdoelen die we na de eerste tests kunnen bijstellen.</p>
-        <div class="card">
-          <ul class="todo-list" style="margin:0">
+        <section id="techstack">
+          <h2><span class="n">2</span>Techstack en hardware</h2>
+          <p>Alles hieronder is open source of via een API bruikbaar; alleen de arm, camera en GPU kosten geld.</p>
+          <div class="table">
+            <span class="kicker">Tabel 1 · Keuzes per laag</span>
+            <table>
+              <thead><tr><th scope="col">Laag</th><th scope="col">Keuze voor de MVP</th><th scope="col">Waarom</th></tr></thead>
+              <tbody>
+                <tr><td>Planner (agent)</td><td data-label="Keuze voor de MVP">Claude of Gemini Robotics ER via API<a class="cite" href="#ref-2">2</a></td><td data-label="Waarom">Zet de opdracht om in vaardigheden en roept tools aan</td></tr>
+                <tr><td>Koppeling agent ↔ robot</td><td data-label="Keuze voor de MVP">MCP-tools (eigen server, of ROS MCP Server bij ROS)<a class="cite" href="#ref-3">3</a></td><td data-label="Waarom">Agent kan veilig vaste functies aanroepen</td></tr>
+                <tr><td>Robotbesturing</td><td data-label="Keuze voor de MVP">LeRobot<a class="cite" href="#ref-5">5</a></td><td data-label="Waarom">Opnemen, trainen en draaien op de SO-101</td></tr>
+                <tr><td>Robotmodel (VLA)</td><td data-label="Keuze voor de MVP">SmolVLA, fine-tuned<a class="cite" href="#ref-1">1</a></td><td data-label="Waarom">Klein, traint op één GPU</td></tr>
+                <tr><td>Simulatie</td><td data-label="Keuze voor de MVP">MuJoCo of Isaac Lab<a class="cite" href="#ref-4">4</a></td><td data-label="Waarom">Testen en extra data zonder risico</td></tr>
+                <tr><td>Data</td><td data-label="Keuze voor de MVP">Hugging Face Hub (LeRobot-datasets)</td><td data-label="Waarom">Bestaande data + eigen opnames</td></tr>
+                <tr><td>Interface</td><td data-label="Keuze voor de MVP">Simpele webapp</td><td data-label="Waarom">Opdracht invoeren, resultaten zien, goedkeuren</td></tr>
+                <tr><td>Hardware</td><td data-label="Keuze voor de MVP">SO-101 arm (leader + follower), USB-camera, PC met NVIDIA-GPU of cloud-GPU</td><td data-label="Waarom">Goedkoop en goed ondersteund</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="lerobot">
+          <h2><span class="n">3</span>Bouwen op LeRobot</h2>
+          <p>LeRobot<a class="cite" href="#ref-5">5</a> van Hugging Face is de motor onder Motiq: het regelt robotbesturing, data, modellen en evaluatie, zodat wij ons richten op de agent en de klant. De licentie is Apache 2.0, dus we mogen er commercieel op bouwen.</p>
+          <div class="table">
+            <span class="kicker">Tabel 2 · Wat LeRobot al levert</span>
+            <table>
+              <thead><tr><th scope="col">Onderdeel</th><th scope="col">Wat het doet</th><th scope="col">Waar het in ons plan past</th></tr></thead>
+              <tbody>
+                <tr><td>Robot-interface<a class="cite" href="#ref-6">6</a></td><td data-label="Wat het doet">Eén interface voor alle robots, van SO-100/101 tot humanoïden</td><td data-label="Waar het in ons plan past">Laag “robotbesturing”</td></tr>
+                <tr><td>LeRobotDataset<a class="cite" href="#ref-7">7</a></td><td data-label="Wat het doet">MP4-video's plus Parquet-bestanden, gedeeld via de Hub</td><td data-label="Waar het in ons plan past">Stap 4: data verzamelen</td></tr>
+                <tr><td>Modellen<a class="cite" href="#ref-8">8</a></td><td data-label="Wat het doet">ACT, Diffusion, SmolVLA, Pi0, Pi0.5, GR00T N1.7 en meer</td><td data-label="Waar het in ons plan past">Stap 3: agent kiest het passende model</td></tr>
+                <tr><td>Evaluatie<a class="cite" href="#ref-9">9</a></td><td data-label="Wat het doet">Testen in simulatie of op echte hardware, met benchmarks als LIBERO en MetaWorld</td><td data-label="Waar het in ons plan past">Stap 6: testen in simulatie</td></tr>
+                <tr><td>Reward models en HIL-SERL</td><td data-label="Wat het doet">Beoordelen of een poging gelukt is; leren met de mens in de lus</td><td data-label="Waar het in ons plan past">Stap 6 en 10: goed/fout loggen en leren van fouten</td></tr>
+                <tr><td>Plugins voor andere armen<a class="cite" href="#ref-10">10</a></td><td data-label="Wat het doet">Universal Robots UR5e, UFACTORY xArm, Franka, ROS 2-bridges en meer</td><td data-label="Waar het in ons plan past">Overstap van SO-101 naar een cobot bij de klant</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Wat dit betekent voor ons</h3>
+          <div class="three">
+            <div><h4>Pad naar de klant bestaat al</h4><p>Wat we op de SO-101 bouwen, kan via een plugin naar een UR-arm bij een plaatbewerker.</p></div>
+            <div><h4>Klaar voor vibecoding</h4><p>De repo bevat een CLAUDE.md en AGENTS.md, dus coding agents begrijpen de codebase direct.</p></div>
+            <div><h4>Onze waarde zit erboven</h4><p>LeRobot is gereedschap; Motiq is de agent die de hele keten regelt plus een werkend sorteerproces voor één niche.</p></div>
+          </div>
+          <p>Cursussen en documentatie om mee te leren staan in <a href="research.html#leren">Research note 04</a>.</p>
+        </section>
+
+        <section id="fasering">
+          <h2><span class="n">4</span>Fasering</h2>
+          <p>Reken op ongeveer 8 weken naast ander werk; elke fase eindigt met een poort die we moeten halen voor we doorgaan.</p>
+          <figure class="fig">
+            <div class="fig-body">
+              <ol class="process">
+                <li><span class="dot">1</span><div><span class="phase">Week 1–2</span><h4>Hardware en basis</h4><p>SO-101 bouwen en kalibreren, LeRobot installeren, met de leader-arm de follower handmatig besturen.</p><p class="gate"><b>Poort</b>De arm is te teleopereren en camerabeelden worden opgenomen.</p></div></li>
+                <li><span class="dot">2</span><div><span class="phase">Week 2–3</span><h4>Data verzamelen</h4><p>50–100 demonstraties opnemen van “pak blokje, leg in bakje”, per kleur, op de Hub zetten.</p><p class="gate"><b>Poort</b>Een schone dataset met alle drie de kleuren.</p></div></li>
+                <li><span class="dot">3</span><div><span class="phase">Week 3–5</span><h4>Model trainen</h4><p>SmolVLA fine-tunen op de dataset; eerst één kleur, dan alle drie.</p><p class="gate"><b>Poort</b>Minstens 70% geslaagde pogingen voor één kleur op de echte arm.</p></div></li>
+                <li><span class="dot">4</span><div><span class="phase">Week 5–6</span><h4>Agentlaag</h4><p>MCP-tools maken (<code>detecteer_blokjes</code>, <code>voer_vaardigheid_uit</code>, <code>stop</code>), de planner laat de opdracht opsplitsen en tools aanroepen.</p><p class="gate"><b>Poort</b>“Sorteer alles” wordt automatisch een correcte reeks stappen.</p></div></li>
+                <li><span class="dot">5</span><div><span class="phase">Week 6–7</span><h4>Simulatie en evaluatie</h4><p>Dezelfde taak in MuJoCo of Isaac Lab, varianten genereren (positie, licht, aantal blokjes), automatisch scoren.</p><p class="gate"><b>Poort</b>Een testrapport per versie van het model.</p></div></li>
+                <li class="safe"><span class="dot">6</span><div><span class="phase">Week 7–8</span><h4>Veiligheid, goedkeuring en demo</h4><p>Goedkeuringsscherm, limieten en noodstop, eindtest op de echte arm.</p><p class="gate"><b>Poort</b>De succescriteria in sectie 6 zijn gehaald.</p></div></li>
+              </ol>
+            </div>
+            <figcaption><b>Figuur 1.</b> Fasering van de MVP in ongeveer acht weken, met per fase de poort om door te gaan.</figcaption>
+          </figure>
+          <div class="note">De automatische lus “zoek data, genereer scenario's, train opnieuw” komt pas na de MVP: eerst moet het handmatige pad betrouwbaar werken.</div>
+        </section>
+
+        <section id="veiligheid">
+          <h2><span class="n">5</span>Veiligheid en menselijke goedkeuring</h2>
+          <p>Veiligheid zit buiten de AI-modellen: geen model mag een beweging uitvoeren die de veiligheidslaag niet toestaat.</p>
+          <ul>
+            <li><strong>Harde limieten in code:</strong> maximale snelheid, kracht en een vaste werkruimte (bounding box) waar de arm niet buiten mag.</li>
+            <li><strong>Noodstop:</strong> een fysieke knop die de stroom naar de motoren onderbreekt, plus een <code>stop</code>-tool die de agent altijd mag aanroepen.</li>
+            <li><strong>Alleen vaste tools:</strong> de agent kan alleen goedgekeurde functies aanroepen, nooit vrije motorcommando's sturen.</li>
+            <li><strong>Goedkeuringsscherm:</strong> vóór uitvoering zie je het plan, de testscore uit simulatie en de modelversie; pas na jouw klik draait het op de echte arm.</li>
+            <li><strong>Logboek:</strong> elke opdracht, elk plan en elke uitvoering wordt opgeslagen, zodat je fouten kunt terugzien.</li>
+          </ul>
+          <div class="note accent">Google raadt zelf af om zijn robotica-modellen te gebruiken waar een storing letsel of schade kan veroorzaken.<a class="cite" href="#ref-11">11</a> Daarom houden we de MVP bij lichte blokjes en zonder mensen binnen bereik van de arm.</div>
+        </section>
+
+        <section id="succes">
+          <h2><span class="n">6</span>Succescriteria</h2>
+          <p>De MVP is geslaagd als deze lijst is afgevinkt; de getallen zijn startdoelen die we na de eerste tests kunnen bijstellen.</p>
+          <ul class="boxes">
             <li>Een opdracht in gewone taal wordt zonder code een uitgevoerd plan</li>
             <li>Minstens 80% van de blokjes belandt in het juiste bakje (20 testrondes)</li>
             <li>Nieuwe posities van blokjes werken zonder opnieuw trainen</li>
@@ -239,62 +179,69 @@
             <li>Niets draait op de echte arm zonder menselijke goedkeuring</li>
             <li>Elke run staat in het logboek met plan, score en resultaat</li>
           </ul>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Risico's</h2>
-        <p class="section-intro">Het grootste risico is dat wat in simulatie werkt, op de echte arm faalt; daarom traint de MVP eerst op echte demonstraties.</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th scope="col">Risico</th><th scope="col">Gevolg</th><th scope="col">Aanpak</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Sim-to-real gap</td><td data-label="Gevolg">Model faalt op echte arm</td><td data-label="Aanpak">Echte demo's als basis, simulatie alleen als aanvulling</td></tr>
-              <tr><td>Te weinig of rommelige data</td><td data-label="Gevolg">Lage slagingskans</td><td data-label="Aanpak">Vaste opstelling, gelijk licht, 50+ demo's per kleur</td></tr>
-              <tr><td>Geen eigen GPU</td><td data-label="Gevolg">Trainen duurt lang</td><td data-label="Aanpak">Cloud-GPU huren voor fine-tunen</td></tr>
-              <tr><td>Agent maakt verkeerd plan</td><td data-label="Gevolg">Fout gesorteerd</td><td data-label="Aanpak">Plan altijd tonen en laten goedkeuren</td></tr>
-              <tr><td>Afhankelijk van LeRobot</td><td data-label="Gevolg">Koerswijziging na overname van Hugging Face door Nvidia</td><td data-label="Aanpak">Agentlaag los houden van één bibliotheek; open source blijft forkbaar</td></tr>
-              <tr><td>Naam “Motiq” bezet</td><td data-label="Gevolg">Later gedwongen rebranden</td><td data-label="Aanpak">Domein, TMview en BOIP (klasse 7, 9, 42) checken vóór gebruik</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+        <section id="risicos">
+          <h2><span class="n">7</span>Risico's</h2>
+          <p>Het grootste risico is dat wat in simulatie werkt, op de echte arm faalt; daarom traint de MVP eerst op echte demonstraties.</p>
+          <div class="table">
+            <span class="kicker">Tabel 3 · Risico's en aanpak</span>
+            <table>
+              <thead><tr><th scope="col">Risico</th><th scope="col">Gevolg</th><th scope="col">Aanpak</th></tr></thead>
+              <tbody>
+                <tr><td>Sim-to-real gap</td><td data-label="Gevolg">Model faalt op echte arm</td><td data-label="Aanpak">Echte demo's als basis, simulatie alleen als aanvulling</td></tr>
+                <tr><td>Te weinig of rommelige data</td><td data-label="Gevolg">Lage slagingskans</td><td data-label="Aanpak">Vaste opstelling, gelijk licht, 50+ demo's per kleur</td></tr>
+                <tr><td>Geen eigen GPU</td><td data-label="Gevolg">Trainen duurt lang</td><td data-label="Aanpak">Cloud-GPU huren voor fine-tunen</td></tr>
+                <tr><td>Agent maakt verkeerd plan</td><td data-label="Gevolg">Fout gesorteerd</td><td data-label="Aanpak">Plan altijd tonen en laten goedkeuren</td></tr>
+                <tr><td>Afhankelijk van LeRobot</td><td data-label="Gevolg">Koerswijziging na overname van Hugging Face door Nvidia</td><td data-label="Aanpak">Agentlaag los houden van één bibliotheek; open source blijft forkbaar</td></tr>
+                <tr><td>Naam “Motiq” bezet</td><td data-label="Gevolg">Later gedwongen rebranden</td><td data-label="Aanpak">Domein, TMview en BOIP (klasse 7, 9, 42) checken vóór gebruik</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Waar we nu staan</h2>
-        <p class="section-intro">Fase: idee en plan. Dit zijn de eerstvolgende stappen.</p>
-        <div class="card">
-          <ul class="todo-list" style="margin:0">
+        <section id="nu">
+          <h2><span class="n">8</span>Waar we nu staan</h2>
+          <p>Fase: idee en plan. De eerstvolgende stappen:</p>
+          <ul class="boxes">
             <li>10 gesprekken met plaatbewerkers voeren</li>
             <li>Een robot-learning-expert spreken over haalbaarheid</li>
             <li>SO-101 bestellen, bouwen en kalibreren</li>
             <li>Naam, domein en merkregister checken</li>
             <li>Korte demovideo maken voor outreach</li>
           </ul>
-        </div>
-      </div>
-    </section>
+        </section>
+
+        <section id="referenties">
+          <h2><span class="n">R</span>Referenties</h2>
+          <ol class="refs">
+            <li id="ref-1"><a href="https://huggingface.co/docs/lerobot/smolvla" target="_blank" rel="noopener">LeRobot SmolVLA</a> <span class="src">· Hugging Face</span></li>
+            <li id="ref-2"><a href="https://ai.google.dev/gemini-api/docs/robotics-overview" target="_blank" rel="noopener">Gemini Robotics</a> <span class="src">· Google AI for Developers</span></li>
+            <li id="ref-3"><a href="https://github.com/robotmcp/ros-mcp-server" target="_blank" rel="noopener">ROS MCP Server</a> <span class="src">· GitHub</span></li>
+            <li id="ref-4"><a href="https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/14-strategy3-cosmos.html" target="_blank" rel="noopener">SO-101 sim-to-real cursus</a> <span class="src">· NVIDIA</span></li>
+            <li id="ref-5"><a href="https://github.com/huggingface/lerobot" target="_blank" rel="noopener">LeRobot</a> <span class="src">· Hugging Face, GitHub</span></li>
+            <li id="ref-6"><a href="https://huggingface.co/docs/lerobot/integrate_hardware" target="_blank" rel="noopener">Hardware integreren</a> <span class="src">· LeRobot-documentatie</span></li>
+            <li id="ref-7"><a href="https://huggingface.co/docs/lerobot/lerobot-dataset-v3" target="_blank" rel="noopener">LeRobotDataset v3</a> <span class="src">· LeRobot-documentatie</span></li>
+            <li id="ref-8"><a href="https://huggingface.co/docs/lerobot/bring_your_own_policies" target="_blank" rel="noopener">Modellen (policies)</a> <span class="src">· LeRobot-documentatie</span></li>
+            <li id="ref-9"><a href="https://huggingface.co/docs/lerobot/envhub" target="_blank" rel="noopener">EnvHub</a> <span class="src">· LeRobot-documentatie</span></li>
+            <li id="ref-10"><a href="https://huggingface.co/docs/lerobot/main/third_party_robots" target="_blank" rel="noopener">Robots van derden</a> <span class="src">· LeRobot-documentatie</span></li>
+            <li id="ref-11"><a href="https://www.unite.ai/?p=444299" target="_blank" rel="noopener">Artikel over veiligheid van Google's robotica-modellen</a> <span class="src">· Unite.AI</span></li>
+          </ol>
+        </section>
+      </article>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="index.html">
-            <span class="brand-mark" aria-hidden="true">M</span>
-            <span>Motiq <span class="brand-lab">Lab</span></span>
-          </a>
+          <a class="brand" href="index.html">Motiq <span class="lab">Lab</span></a>
           <p>Vibecoding voor robots. Motiq = Motion + IQ.</p>
-          <p class="small">Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
-          <h4>Pagina's</h4>
+          <h4>Research notes</h4>
           <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
@@ -311,7 +258,7 @@
           <p><span class="placeholder">[jouw-e-mailadres]</span></p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Motiq Lab</div>
+      <div class="footer-bottom">© 2026 Motiq Lab · Versie 0.1 · Idee en plan</div>
     </div>
   </footer>
 </body>

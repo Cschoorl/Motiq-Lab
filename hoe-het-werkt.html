@@ -7,23 +7,20 @@
   <meta name="description" content="De tien stappen van opdracht tot werkende robottaak, en de architectuur in vijf lagen.">
   <meta property="og:title" content="Hoe het werkt · Motiq Lab">
   <meta property="og:description" content="De tien stappen van opdracht tot werkende robottaak, en de architectuur in vijf lagen.">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235451d6'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='800' font-size='17' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1a17'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23fbfaf7' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,450;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#inhoud">Naar de inhoud</a>
 
   <header class="site-header">
-    <nav class="container nav" aria-label="Hoofdmenu">
-      <a class="brand" href="index.html" aria-label="Motiq Lab, naar home">
-        <span class="brand-mark" aria-hidden="true">M</span>
-        <span>Motiq <span class="brand-lab">Lab</span></span>
-      </a>
+    <nav class="wrap nav" aria-label="Hoofdmenu">
+      <a class="brand" href="index.html" aria-label="Motiq Lab, naar home">Motiq <span class="lab">Lab</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="hoe-het-werkt.html" aria-current="page">Hoe het werkt</a></li>
@@ -35,138 +32,131 @@
   </header>
 
   <main id="inhoud">
-    <section class="page-header">
-      <div class="container">
-        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Hoe Motiq werkt</span>
-        <h1>Van opdracht naar werkende robottaak</h1>
-        <p class="lead">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
-      </div>
-    </section>
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Research note 01</span> · Product</span>
+        <h1>Hoe Motiq werkt</h1>
+        <p class="dek">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
+        <div class="byline"><span><b>Door</b>Motiq Lab</span><span><b>Status</b>Idee en plan</span><span><b>Figuren</b>2</span></div>
+      </div></div>
+    </header>
 
-    <section class="section">
-      <div class="container">
-        <h2>In tien stappen</h2>
-        <blockquote class="example">
-          <span>Voorbeeldopdracht</span>
-          “Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.”
-        </blockquote>
-        <ol class="steps">
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">1</span>
-            <div><h3>Opdracht geven</h3><p>Je typt de opdracht in de webinterface, zonder code.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">2</span>
-            <div><h3>Plan maken</h3><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">3</span>
-            <div><h3>Vaardigheden checken</h3><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA) en bestaande datasets op Hugging Face.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">4</span>
-            <div><h3>Data verzamelen</h3><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">5</span>
-            <div><h3>Trainen</h3><p>Het basismodel wordt bijgetraind op jouw arm, tafel en blokjes.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">6</span>
-            <div><h3>Testen in simulatie</h3><p>De robot doet de taak honderden keren virtueel.</p><span class="step-note">↺ Score te laag? Terug naar stap 4 of 5.</span></div>
-          </li>
-          <li class="card step card-accent">
-            <span class="step-num" aria-hidden="true">7</span>
-            <div><h3>Veiligheidscheck</h3><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div>
-          </li>
-          <li class="card step card-accent">
-            <span class="step-num" aria-hidden="true">8</span>
-            <div><h3>Goedkeuren</h3><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte arm.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">9</span>
-            <div><h3>Uitvoeren</h3><p>De camera kijkt mee en de agent stopt of probeert opnieuw bij een fout; de noodstop blijft altijd werken.</p></div>
-          </li>
-          <li class="card step">
-            <span class="step-num" aria-hidden="true">10</span>
-            <div><h3>Leren van fouten</h3><p>Elke run wordt gelogd en mislukte pogingen worden nieuwe trainingsdata.</p></div>
-          </li>
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#overzicht"><span class="n">1</span>Overzicht</a></li>
+          <li><a href="#stappen"><span class="n">2</span>De tien stappen</a></li>
+          <li><a href="#architectuur"><span class="n">3</span>Architectuur</a></li>
+          <li><a href="#principe"><span class="n">4</span>Ontwerpprincipe</a></li>
+          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
         </ol>
-      </div>
-    </section>
+      </aside>
 
-    <section class="section" id="architectuur">
-      <div class="container">
-        <h2>Architectuur</h2>
-        <p class="section-intro">Vijf lagen, van boven naar beneden. Elke beweging gaat door de veiligheidslaag.</p>
+      <article class="content">
+        <section id="overzicht">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte arm.</p>
+          </div>
+          <h2><span class="n">1</span>Overzicht</h2>
+          <p>We gebruiken in deze note één doorlopend voorbeeld, ook de opdracht van de MVP:</p>
+          <p class="pull">Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.</p>
+        </section>
 
-        <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de SO-101 robotarm met camera.">
-          <div class="arch-layer">
-            <span class="layer-no">Laag 1</span>
-            <h3>Jij, via de webinterface</h3>
-            <p>Opdracht in gewone taal.</p>
-          </div>
-          <div class="arch-arrow" aria-hidden="true"></div>
-          <div class="arch-layer">
-            <span class="layer-no">Laag 2</span>
-            <h3>Planner-agent</h3>
-            <p>Claude of Gemini Robotics ER. Splitst de opdracht in vaardigheden en roept tools aan.</p>
-          </div>
-          <div class="arch-arrow" aria-hidden="true"></div>
-          <div class="arch-layer arch-tools">
-            <span class="layer-no">Laag 3</span>
-            <h3>Tools via MCP</h3>
-            <div class="arch-tools-grid">
-              <div class="arch-tool">
-                <h4>Waarneming</h4>
-                <p>Camera + objectdetectie: “waar ligt welk blokje?”</p>
-              </div>
-              <div class="arch-tool">
-                <h4>Vaardigheden</h4>
-                <p>SmolVLA-policy: “pak en plaats per kleur”</p>
-              </div>
-              <div class="arch-tool">
-                <h4>Training en simulatie</h4>
-                <p>LeRobot, MuJoCo of Isaac, data van Hugging Face</p>
+        <section id="stappen">
+          <h2><span class="n">2</span>De tien stappen</h2>
+          <p>Van opdracht tot uitvoering doorloopt elke taak dezelfde tien stappen. Stap 7 en 8 vormen de veiligheidspoort: daar beslist niet het model, maar de veiligheidslaag en de mens.</p>
+          <figure class="fig">
+            <div class="fig-body">
+              <ol class="process">
+                <li><span class="dot">01</span><div><h4>Opdracht geven</h4><p>Je typt de opdracht in de webinterface, zonder code.</p></div></li>
+                <li><span class="dot">02</span><div><h4>Plan maken</h4><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
+                <li><span class="dot">03</span><div><h4>Vaardigheden checken</h4><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a>) en bestaande datasets op Hugging Face.</p></div></li>
+                <li><span class="dot">04</span><div><h4>Data verzamelen</h4><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div></li>
+                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw arm, tafel en blokjes.</p></div></li>
+                <li><span class="dot">06</span><div><h4>Testen in simulatie</h4><p>De robot doet de taak honderden keren virtueel.</p><span class="loop">↺ score te laag → terug naar stap 04 of 05</span></div></li>
+                <li class="safe"><span class="dot">07</span><div><h4>Veiligheidscheck</h4><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div></li>
+                <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte arm.</p></div></li>
+                <li><span class="dot">09</span><div><h4>Uitvoeren</h4><p>De camera kijkt mee en de agent stopt of probeert opnieuw bij een fout; de noodstop blijft altijd werken.</p></div></li>
+                <li><span class="dot">10</span><div><h4>Leren van fouten</h4><p>Elke run wordt gelogd en mislukte pogingen worden nieuwe trainingsdata.</p></div></li>
+              </ol>
+            </div>
+            <figcaption><b>Figuur 1.</b> De tien stappen van opdracht tot uitvoering. De veiligheidspoort (stap 07–08) is gemarkeerd; bij een te lage testscore gaat de lus terug naar data verzamelen of trainen.</figcaption>
+          </figure>
+        </section>
+
+        <section id="architectuur">
+          <h2><span class="n">3</span>Architectuur</h2>
+          <p>De architectuur bestaat uit vijf lagen, van boven naar beneden. Elke beweging gaat door de veiligheidslaag.</p>
+          <figure class="fig">
+            <div class="fig-body">
+              <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de SO-101 robotarm met camera.">
+                <div class="arch-layer">
+                  <span class="kicker">Laag 1</span>
+                  <h4>Jij, via de webinterface</h4>
+                  <p>Opdracht in gewone taal.</p>
+                </div>
+                <div class="arch-arrow" aria-hidden="true"></div>
+                <div class="arch-layer">
+                  <span class="kicker">Laag 2</span>
+                  <h4>Planner-agent</h4>
+                  <p>Claude of Gemini Robotics ER.<a class="cite" href="#ref-2">2</a> Splitst de opdracht in vaardigheden en roept tools aan.</p>
+                </div>
+                <div class="arch-arrow" aria-hidden="true"></div>
+                <div class="arch-layer arch-tools">
+                  <span class="kicker">Laag 3</span>
+                  <h4>Tools via MCP</h4>
+                  <div class="arch-tools-grid">
+                    <div class="arch-tool"><h5>Waarneming</h5><p>Camera + objectdetectie: “waar ligt welk blokje?”</p></div>
+                    <div class="arch-tool"><h5>Vaardigheden</h5><p>SmolVLA-policy: “pak en plaats per kleur”</p></div>
+                    <div class="arch-tool"><h5>Training en simulatie</h5><p>LeRobot, MuJoCo of Isaac, data van Hugging Face</p></div>
+                  </div>
+                </div>
+                <div class="arch-arrow accent" aria-hidden="true"></div>
+                <div class="arch-layer arch-safety">
+                  <span class="kicker">Laag 4 · Veiligheidslaag</span>
+                  <h4>Harde limieten, noodstop en jouw goedkeuring</h4>
+                  <p>Bepaalt of een beweging op de echte arm mag.</p>
+                </div>
+                <div class="arch-arrow accent" aria-hidden="true"></div>
+                <div class="arch-layer">
+                  <span class="kicker">Laag 5</span>
+                  <h4>SO-101 robotarm en camera</h4>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="arch-arrow accent" aria-hidden="true"></div>
-          <div class="arch-layer arch-safety">
-            <svg class="shield" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--accent)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            <span class="layer-no">Laag 4 · Veiligheidslaag</span>
-            <h3>Harde limieten, noodstop en jouw goedkeuring</h3>
-            <p>Bepaalt of een beweging op de echte arm mag. De agent stuurt nooit zelf motoren aan.</p>
-          </div>
-          <div class="arch-arrow accent" aria-hidden="true"></div>
-          <div class="arch-layer arch-hardware">
-            <span class="layer-no">Laag 5</span>
-            <h3>SO-101 robotarm en camera</h3>
-          </div>
-        </div>
-        <p class="arch-caption">De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte arm mag.</p>
+            <figcaption><b>Figuur 2.</b> Architectuur in vijf lagen. De drie tools in laag 3 werken naast elkaar; alles wat naar de arm gaat, passeert eerst de veiligheidslaag.</figcaption>
+          </figure>
+        </section>
 
-        <div class="actions" style="justify-content:center">
-          <a class="btn btn-primary" href="mvp.html">Naar de MVP →</a>
-          <a class="btn" href="mvp.html#veiligheid">Meer over veiligheid</a>
-        </div>
-      </div>
-    </section>
+        <section id="principe">
+          <h2><span class="n">4</span>Ontwerpprincipe</h2>
+          <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte arm mag. <strong>De agent stuurt nooit zelf motoren aan.</strong></p>
+          <p>Hoe we dit in acht weken bouwen en welke veiligheidsmaatregelen erbij horen, staat in <a href="mvp.html">Research note 03: De MVP</a>, met de veiligheidslaag uitgewerkt in <a href="mvp.html#veiligheid">sectie 5</a>.</p>
+        </section>
+
+        <section id="referenties">
+          <h2><span class="n">R</span>Referenties</h2>
+          <ol class="refs">
+            <li id="ref-1"><a href="https://huggingface.co/docs/lerobot/smolvla" target="_blank" rel="noopener">LeRobot SmolVLA</a> <span class="src">· Hugging Face</span><span class="why">Klein robotmodel (VLA) dat op één GPU traint.</span></li>
+            <li id="ref-2"><a href="https://ai.google.dev/gemini-api/docs/robotics-overview" target="_blank" rel="noopener">Gemini Robotics</a> <span class="src">· Google AI for Developers</span><span class="why">Optie voor de planner-agent.</span></li>
+          </ol>
+        </section>
+      </article>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="index.html">
-            <span class="brand-mark" aria-hidden="true">M</span>
-            <span>Motiq <span class="brand-lab">Lab</span></span>
-          </a>
+          <a class="brand" href="index.html">Motiq <span class="lab">Lab</span></a>
           <p>Vibecoding voor robots. Motiq = Motion + IQ.</p>
-          <p class="small">Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
-          <h4>Pagina's</h4>
+          <h4>Research notes</h4>
           <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
@@ -183,7 +173,7 @@
           <p><span class="placeholder">[jouw-e-mailadres]</span></p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Motiq Lab</div>
+      <div class="footer-bottom">© 2026 Motiq Lab · Versie 0.1 · Idee en plan</div>
     </div>
   </footer>
 </body>
