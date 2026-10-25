@@ -5,10 +5,16 @@ Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap). 
 | Pagina | Bestand |
 | --- | --- |
 | Home | `index.html` |
-| Hoe het werkt | `hoe-het-werkt.html` |
-| Markt | `markt.html` |
-| MVP | `mvp.html` |
-| Research | `research.html` |
+| Research (overzicht van alle notes, met filter) | `research.html` |
+| Aanpak (missie, principes, hypotheses, roadmap) | `aanpak.html` |
+| Bronnen (alle 27 bronnen) | `bronnen.html` |
+| Note 01 · Systeemontwerp | `hoe-het-werkt.html` |
+| Note 02 · Marktanalyse | `markt.html` |
+| Note 03 · Concurrentie | `concurrentie.html` |
+| Note 04 · Onderzoeksplan MVP | `mvp.html` |
+| Note 05 · Bouwen op LeRobot | `lerobot.html` |
+| Note 06 · Veiligheid | `veiligheid.html` |
+| Note 07 · Validatieplan | `validatie.html` |
 
 ## Contactadres invullen
 

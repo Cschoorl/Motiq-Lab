@@ -460,3 +460,148 @@ td:first-child { color: var(--text); font-weight: 400; width: 27%; font-family: 
   html { scroll-behavior: auto; }
   a, .cta-row a, .notes h3 { transition: none; }
 }
+
+/* ======================================================================
+   Research-site onderdelen
+   ====================================================================== */
+
+.nav-links a[aria-current="true"] { color: var(--text); border-bottom-color: var(--line-strong); }
+
+.section-label { display: block; text-align: center; margin-bottom: 40px; }
+.section-label::after { content: ""; display: block; width: 1px; height: 28px; background: var(--line-strong); margin: 18px auto 0; }
+.section-title { text-align: center; margin-bottom: 14px; }
+.section-intro { text-align: center; color: var(--text-muted); max-width: 36rem; margin: 0 auto 48px; }
+.center { text-align: center; }
+.band .center { margin-top: 48px; margin-bottom: 0; }
+.band-body .center { margin-top: 32px; }
+
+/* Cover: typografisch beeld per onderwerp, zonder foto's */
+.cover {
+  position: relative; overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+.cover-no {
+  position: absolute; left: 22px; bottom: 10px; z-index: 1;
+  font-family: var(--serif); font-weight: 300; font-size: 4.2rem; line-height: 1; color: var(--text);
+}
+.cover-lines {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 62%;
+  -webkit-mask-image: linear-gradient(to left, #000 35%, transparent);
+          mask-image: linear-gradient(to left, #000 35%, transparent);
+  opacity: 0.9;
+}
+.cover-systeem .cover-lines { background: repeating-linear-gradient(to bottom, var(--line-strong) 0 1px, transparent 1px 18px); }
+.cover-markt .cover-lines { background: repeating-linear-gradient(to right, var(--line-strong) 0 1px, transparent 1px 18px); }
+.cover-mvp .cover-lines {
+  background:
+    repeating-linear-gradient(to right, var(--line-strong) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(to bottom, var(--line-strong) 0 1px, transparent 1px 26px);
+}
+.cover-veiligheid .cover-lines { background: repeating-radial-gradient(circle at 100% 50%, transparent 0 17px, var(--accent) 17px 18px); opacity: 0.55; }
+.cover-validatie .cover-lines { background: repeating-linear-gradient(135deg, var(--line-strong) 0 1px, transparent 1px 16px); }
+.cover-lg .cover-no { font-size: 6.5rem; left: 32px; bottom: 16px; }
+
+/* Uitgelichte note */
+.feature {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center;
+  text-decoration: none; color: var(--text); max-width: 1040px; margin: 0 auto;
+}
+.feature .cover { margin: 0; }
+.feature h2 { margin: 14px 0 16px; transition: color 0.2s; }
+.feature p { color: var(--text-muted); margin-bottom: 26px; }
+.feature:hover h2 { color: var(--accent); }
+
+/* Kaarten */
+.cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; }
+.cards .card { margin: 0; }
+.cards .card a { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: var(--text); }
+.cards .card .kicker { font-size: 0.62rem; letter-spacing: 0.2em; }
+.cards .card h3 { font-size: 1.6rem; margin: 10px 0 10px; transition: color 0.2s; }
+.cards .card p { font-size: 0.93rem; color: var(--text-muted); margin-bottom: 20px; }
+.cards .card .more { margin-top: auto; align-self: flex-start; }
+.cards .card a:hover h3 { color: var(--accent); }
+.cards .card a:hover .cover { border-color: var(--line-strong); }
+
+/* Filters (alleen CSS) */
+.index { padding: 0 0 40px; }
+.filters > input { position: absolute; opacity: 0; pointer-events: none; }
+.filters > label {
+  display: inline-block; cursor: pointer; margin: 0 14px 10px;
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted);
+  padding: 4px 0; border-bottom: 1px solid transparent;
+}
+.filters { text-align: center; border-top: 1px solid var(--line); padding-top: 22px; }
+.filters > label:hover { color: var(--text); }
+.filters > input:checked + label { color: var(--text); border-bottom-color: var(--text); }
+.filters > input:focus-visible + label { outline: 1px solid var(--accent); outline-offset: 4px; }
+.cards-index { margin-top: 48px; text-align: left; }
+.filters:has(#f-systeem:checked) .card:not([data-cat="systeem"]),
+.filters:has(#f-markt:checked) .card:not([data-cat="markt"]),
+.filters:has(#f-mvp:checked) .card:not([data-cat="mvp"]),
+.filters:has(#f-veiligheid:checked) .card:not([data-cat="veiligheid"]),
+.filters:has(#f-validatie:checked) .card:not([data-cat="validatie"]) { display: none; }
+.index .note { margin-top: 72px; }
+
+/* Hypotheses */
+.hypotheses { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.hypotheses li { margin: 0; border-top: 1px solid var(--line-strong); padding-top: 22px; display: flex; flex-direction: column; }
+.hypotheses h3 { font-size: 1.4rem; margin: 10px 0 10px; }
+.hypotheses p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px; }
+.status {
+  margin-top: auto; align-self: flex-start;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  border: 1px solid var(--line-strong); padding: 4px 10px; color: var(--text-muted);
+}
+
+/* Mijlpalen */
+.milestones { list-style: none; padding: 0; margin: 0 auto; max-width: 960px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); position: relative; }
+.milestones::before { content: ""; position: absolute; left: 16.6%; right: 16.6%; top: 5px; height: 1px; background: var(--line-strong); }
+.milestones li { margin: 0; text-align: center; padding: 0 20px; position: relative; }
+.milestones li::before {
+  content: ""; display: block; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--line-strong); margin: 0 auto 22px; position: relative; z-index: 1;
+}
+.milestones li.now::before { background: var(--accent); border-color: var(--accent); }
+.milestones h3 { font-size: 1.6rem; margin: 8px 0 8px; }
+.milestones p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+/* Principes */
+.principles { list-style: none; padding: 0; margin: 0; counter-reset: p; }
+.principles li { counter-increment: p; position: relative; padding: 20px 0 20px 56px; margin: 0; border-bottom: 1px solid var(--line); }
+.principles li:first-child { border-top: 1px solid var(--line-strong); }
+.principles li::before { content: counter(p, decimal-leading-zero); position: absolute; left: 0; top: 1.55em; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--accent); }
+.principles h4 { margin: 0 0 4px; font-size: 1.35rem; }
+.principles p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+
+/* Citeren */
+.citation {
+  font-size: 0.9rem; line-height: 1.7; color: var(--text);
+  background: var(--surface); border: 1px solid var(--line); padding: 18px 22px; margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Verder lezen */
+.related { background: var(--bg-alt); border-top: 1px solid var(--line); padding: 96px 0 104px; margin-top: 40px; }
+
+@media (max-width: 1000px) {
+  .hypotheses { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+}
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+}
+@media (max-width: 700px) {
+  .cards { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .hypotheses { grid-template-columns: minmax(0, 1fr); }
+  .milestones { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .milestones::before { left: 50%; right: auto; top: 6px; bottom: 40px; width: 1px; height: auto; }
+  .milestones li { background: var(--bg-alt); padding: 8px 0 0; }
+  .filters > label { margin: 0 8px 8px; }
+  .related { padding: 64px 0 72px; }
+  .cover-lg .cover-no { font-size: 4.5rem; left: 22px; }
+  .principles li { padding-left: 44px; }
+}
+.band:nth-of-type(even) .cover, .related .cover { background: var(--bg); }
