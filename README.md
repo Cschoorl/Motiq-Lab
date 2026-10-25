@@ -1,6 +1,8 @@
 # Mushin Lab – website
 
-Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap). Logo: `logo.svg`, favicon: `favicon.svg`.
+Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap).
+
+De stijl volgt het Mushin-Lab design system (brandguide v3): kleuren, letters (M PLUS 1p en Geist Mono), afrondingen en componenten staan als tokens bovenaan `style.css`. Logo's staan in `assets/` (lockup en teken, licht en donker); `favicon.svg` is het app-icoon.
 
 | Pagina | Bestand |
 | --- | --- |
