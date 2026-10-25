@@ -2,7 +2,7 @@
 
 Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap).
 
-De stijl volgt het Mushin-Lab design system (brandguide v3): kleuren, letters (M PLUS 1p en Geist Mono), afrondingen en componenten staan als tokens bovenaan `style.css`. Logo's staan in `assets/` (lockup en teken, licht en donker); `favicon.svg` is het app-icoon.
+De stijl volgt het Mushin-Lab design system (brandguide v3): kleuren, letters (Quicksand als hoofdletter, Geist Mono voor data), afrondingen en componenten staan als tokens bovenaan `style.css`. Logo's staan in `assets/` (lockup en teken, licht en donker); `favicon.svg` is het app-icoon.
 
 | Pagina | Bestand |
 | --- | --- |
