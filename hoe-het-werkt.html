@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Systeemontwerp: van opdracht naar robottaak · Mushin lab</title>
-  <meta name="description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte arm, en de architectuur in vijf lagen.">
+  <meta name="description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
   <meta property="og:title" content="Systeemontwerp: van opdracht naar robottaak · Mushin lab">
-  <meta property="og:description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte arm, en de architectuur in vijf lagen.">
+  <meta property="og:description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
   <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -73,7 +73,7 @@
         <section id="overzicht">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte arm.</p>
+            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte robot.</p>
           </div>
           <h2><span class="n">1</span>Overzicht</h2>
           <p>We gebruiken in deze note één doorlopend voorbeeld, ook de opdracht van de MVP:</p>
@@ -90,10 +90,10 @@
                 <li><span class="dot">02</span><div><h4>Plan maken</h4><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
                 <li><span class="dot">03</span><div><h4>Vaardigheden checken</h4><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a>) en bestaande datasets op Hugging Face.</p></div></li>
                 <li><span class="dot">04</span><div><h4>Data verzamelen</h4><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div></li>
-                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw arm, tafel en blokjes.</p></div></li>
+                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw robot, tafel en blokjes.</p></div></li>
                 <li><span class="dot">06</span><div><h4>Testen in simulatie</h4><p>De robot doet de taak honderden keren virtueel.</p><span class="loop">↺ score te laag → terug naar stap 04 of 05</span></div></li>
                 <li class="safe"><span class="dot">07</span><div><h4>Veiligheidscheck</h4><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div></li>
-                <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte arm.</p></div></li>
+                <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte robot.</p></div></li>
                 <li><span class="dot">09</span><div><h4>Uitvoeren</h4><p>De camera kijkt mee en de agent stopt of probeert opnieuw bij een fout; de noodstop blijft altijd werken.</p></div></li>
                 <li><span class="dot">10</span><div><h4>Leren van fouten</h4><p>Elke run wordt gelogd en mislukte pogingen worden nieuwe trainingsdata.</p></div></li>
               </ol>
@@ -107,7 +107,7 @@
           <p>De architectuur bestaat uit vijf lagen, van boven naar beneden. Elke beweging gaat door de veiligheidslaag.</p>
           <figure class="fig">
             <div class="fig-body">
-              <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de SO-101 robotarm met camera.">
+              <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de robot met camera.">
                 <div class="arch-layer">
                   <span class="kicker">Laag 1</span>
                   <h4>Jij, via de webinterface</h4>
@@ -133,22 +133,23 @@
                 <div class="arch-layer arch-safety">
                   <span class="kicker">Laag 4 · Veiligheidslaag</span>
                   <h4>Harde limieten, noodstop en jouw goedkeuring</h4>
-                  <p>Bepaalt of een beweging op de echte arm mag.</p>
+                  <p>Bepaalt of een beweging op de echte robot mag.</p>
                 </div>
                 <div class="arch-arrow accent" aria-hidden="true"></div>
                 <div class="arch-layer">
                   <span class="kicker">Laag 5</span>
-                  <h4>SO-101 robotarm en camera</h4>
+                  <h4>Robot en camera</h4>
+                  <p>In de MVP: de SO-101-arm.</p>
                 </div>
               </div>
             </div>
-            <figcaption><b>Figuur 2.</b> Architectuur in vijf lagen. De drie tools in laag 3 werken naast elkaar; alles wat naar de arm gaat, passeert eerst de veiligheidslaag.</figcaption>
+            <figcaption><b>Figuur 2.</b> Architectuur in vijf lagen. De drie tools in laag 3 werken naast elkaar; alles wat naar de robot gaat, passeert eerst de veiligheidslaag.</figcaption>
           </figure>
         </section>
 
         <section id="principe">
           <h2><span class="n">4</span>Ontwerpprincipe</h2>
-          <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte arm mag. <strong>De agent stuurt nooit zelf motoren aan.</strong></p>
+          <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte robot mag. <strong>De agent stuurt nooit zelf motoren aan.</strong></p>
           <p>Hoe we dit in acht weken bouwen, staat in <a href="mvp.html">note 04: Onderzoeksplan</a>. Wat er bij de klant draait en wat in de cloud, staat in <a href="architectuur.html">note 03: Architectuur</a>. De veiligheidslaag is uitgewerkt in <a href="veiligheid.html">note 06: Veiligheid als ontwerpprincipe</a>, en de rol van LeRobot in <a href="lerobot.html">note 05</a>.</p>
         </section>
 

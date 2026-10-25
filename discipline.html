@@ -71,7 +71,7 @@
         <section id="regels">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Bouwen in kleine stappen rond LeRobot, eerst tests en dan pas trainen, valideren in lagen, en niets op de echte arm dat niet in simulatie is bewezen. Bij veiligheid ligt de lat hoger: goedkeuring op bewijs.</p>
+            <p>Bouwen in kleine stappen rond LeRobot, eerst tests en dan pas trainen, valideren in lagen, en niets op de echte robot dat niet in simulatie is bewezen. Bij veiligheid ligt de lat hoger: goedkeuring op bewijs.</p>
           </div>
           <h2><span class="n">1</span>Zes regels</h2>
           <p>Gebaseerd op <em>How to Use Vibe Coding in Robotics</em>.<a class="cite" href="#ref-1">1</a></p>
@@ -79,7 +79,7 @@
             <li><h4>Ankerrepository</h4><p>Bouw in kleine stappen rond LeRobot, nooit een eigen architectuur vanaf nul.</p></li>
             <li><h4>Tests vóór implementatie</h4><p>De agent definieert eerst slagingscriteria, randgevallen en faalscenario's voor een vaardigheid, en traint of voert pas daarna uit. Zo wordt het testen in simulatie meetbaar.</p></li>
             <li><h4>Valideren in lagen</h4><p>Statische checks en logica eerst, dan onderdelen apart, dan integratie, en pas aan het eind simulatie en hardware. De meeste fouten zitten in de koppelingen (parameters, topic-namen, configuratie), niet in het algoritme.</p></li>
-            <li><h4>Simulatie als grens</h4><p>Niets dat niet in simulatie is gevalideerd raakt de echte arm.</p></li>
+            <li><h4>Simulatie als grens</h4><p>Niets dat niet in simulatie is gevalideerd raakt de echte robot.</p></li>
             <li><h4>CI als poort</h4><p>Elke wijziging moet bouwen en alle tests halen voordat hij verder mag.</p></li>
             <li><h4>Hogere lat bij veiligheid</h4><p>Alles wat beweging, snelheid, stoppen, werkruimte of mens-robotinteractie raakt, wordt goedgekeurd op bewijs (tests, simulatie, faalscenario's), niet op "ziet er goed uit".</p></li>
           </ol>

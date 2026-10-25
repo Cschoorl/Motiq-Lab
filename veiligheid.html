@@ -75,18 +75,18 @@
         <section id="principe">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte arm mag. Harde limieten, een noodstop, vaste tools, een goedkeuringsscherm en een logboek bewaken elke beweging.</p>
+            <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte robot mag. Harde limieten, een noodstop, vaste tools, een goedkeuringsscherm en een logboek bewaken elke beweging.</p>
           </div>
           <h2><span class="n">1</span>Het principe</h2>
           <p class="pull">De agent stuurt nooit zelf motoren aan.</p>
-          <p>In het stappenplan van <a href="hoe-het-werkt.html#stappen">note 02</a> vormen stap 7 en 8 de veiligheidspoort: eerst een veiligheidscheck (elke beweging moet binnen de werkruimte en snelheidslimiet blijven), daarna goedkeuring door de mens, die plan, testscore en modelversie ziet. Pas na die klik draait het op de echte arm. Tijdens het uitvoeren blijft de noodstop altijd werken.</p>
+          <p>In het stappenplan van <a href="hoe-het-werkt.html#stappen">note 02</a> vormen stap 7 en 8 de veiligheidspoort: eerst een veiligheidscheck (elke beweging moet binnen de werkruimte en snelheidslimiet blijven), daarna goedkeuring door de mens, die plan, testscore en modelversie ziet. Pas na die klik draait het op de echte robot. Tijdens het uitvoeren blijft de noodstop altijd werken.</p>
         </section>
 
         <section id="laag">
           <h2><span class="n">2</span>De veiligheidslaag in de architectuur</h2>
           <figure class="fig">
             <div class="fig-body">
-              <div class="arch" role="img" aria-label="Vereenvoudigd schema: de planner-agent en de tools geven opdrachten door aan de veiligheidslaag, en alleen wat die toestaat bereikt de robotarm.">
+              <div class="arch" role="img" aria-label="Vereenvoudigd schema: de planner-agent en de tools geven opdrachten door aan de veiligheidslaag, en alleen wat die toestaat bereikt de robot.">
                 <div class="arch-layer">
                   <span class="kicker">Laag 2 en 3</span>
                   <h4>Planner-agent en tools via MCP</h4>
@@ -101,21 +101,21 @@
                 <div class="arch-arrow accent" aria-hidden="true"></div>
                 <div class="arch-layer">
                   <span class="kicker">Laag 5</span>
-                  <h4>SO-101 robotarm en camera</h4>
+                  <h4>Robot en camera</h4>
                 </div>
               </div>
             </div>
-            <figcaption><b>Figuur 1.</b> Uitsnede van de architectuur uit note 02: alles wat naar de arm gaat, passeert eerst de veiligheidslaag.</figcaption>
+            <figcaption><b>Figuur 1.</b> Uitsnede van de architectuur uit note 02: alles wat naar de robot gaat, passeert eerst de veiligheidslaag.</figcaption>
           </figure>
         </section>
 
         <section id="maatregelen">
           <h2><span class="n">3</span>Vijf maatregelen</h2>
           <ol class="principles">
-            <li><h4>Harde limieten in code</h4><p>Maximale snelheid, kracht en een vaste werkruimte (bounding box) waar de arm niet buiten mag.</p></li>
+            <li><h4>Harde limieten in code</h4><p>Maximale snelheid, kracht en een vaste werkruimte (bounding box) waar de robot niet buiten mag.</p></li>
             <li><h4>Noodstop</h4><p>Een fysieke knop die de stroom naar de motoren onderbreekt, plus een <code>stop</code>-tool die de agent altijd mag aanroepen.</p></li>
             <li><h4>Alleen vaste tools</h4><p>De agent kan alleen goedgekeurde functies aanroepen, nooit vrije motorcommando's sturen.</p></li>
-            <li><h4>Goedkeuringsscherm</h4><p>Vóór uitvoering zie je het plan, de testscore uit simulatie en de modelversie; pas na jouw klik draait het op de echte arm.</p></li>
+            <li><h4>Goedkeuringsscherm</h4><p>Vóór uitvoering zie je het plan, de testscore uit simulatie en de modelversie; pas na jouw klik draait het op de echte robot.</p></li>
             <li><h4>Logboek</h4><p>Elke opdracht, elk plan en elke uitvoering wordt opgeslagen, zodat je fouten kunt terugzien.</p></li>
           </ol>
         </section>

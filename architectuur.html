@@ -76,13 +76,13 @@
           <h2><span class="n">1</span>De onderdelen</h2>
           <figure class="fig">
             <div class="fig-body">
-              <div class="split" role="img" aria-label="Twee kolommen: bij de klant de operator-interface, edge-computer, camera's met leader-arm en de robotarm; in de Mushin lab cloud de planner-agent, trainingspipeline, simulatie en evaluatie en de vaardigheidsbibliotheek.">
+              <div class="split" role="img" aria-label="Twee kolommen: bij de klant de operator-interface, edge-computer, camera's met een leader-arm en de robot; in de Mushin lab cloud de planner-agent, trainingspipeline, simulatie en evaluatie en de vaardigheidsbibliotheek.">
                 <div class="split-col">
                   <span class="kicker">Bij de klant · werken</span>
                   <div class="arch-layer"><h4>Operator-interface</h4><p>Browser of tablet: opdracht geven, demonstraties starten, plan en testscore bekijken, goedkeuren</p></div>
-                  <div class="arch-layer arch-safety"><h4>Edge-computer</h4><p>PC of NVIDIA Jetson naast de arm: veiligheidslaag, LeRobot-runtime, inferentie van de getrainde policy, lokaal logboek</p></div>
-                  <div class="arch-layer"><h4>Camera's en leader-arm</h4><p>Waarnemen tijdens uitvoering; demonstraties opnemen tijdens het leren</p></div>
-                  <div class="arch-layer"><h4>Robotarm</h4><p>Voert de vaardigheid uit, ook als de verbinding wegvalt</p></div>
+                  <div class="arch-layer arch-safety"><h4>Edge-computer</h4><p>PC of NVIDIA Jetson naast de robot: veiligheidslaag, LeRobot-runtime, inferentie van de getrainde policy, lokaal logboek</p></div>
+                  <div class="arch-layer"><h4>Camera's en demonstraties</h4><p>Waarnemen tijdens uitvoering; demonstraties opnemen tijdens het leren, bijvoorbeeld met een leader-arm</p></div>
+                  <div class="arch-layer"><h4>Robot</h4><p>Voert de vaardigheid uit, ook als de verbinding wegvalt</p></div>
                 </div>
                 <div class="split-mid" aria-hidden="true"><span class="to-cloud">demo's</span><span class="to-edge">model</span></div>
                 <div class="split-col">
@@ -104,11 +104,11 @@
             <div class="fig-body">
               <ol class="process">
                 <li><span class="dot">1</span><div><h4>Opdracht</h4><p>De operator typt de taak in de interface. De planner-agent in de cloud maakt er een plan van en zoekt in de bibliotheek of een passende vaardigheid al bestaat.</p></div></li>
-                <li><span class="dot">2</span><div><h4>Demonstraties</h4><p>Ontbreekt de vaardigheid, dan doet de operator de taak voor met de leader-arm. De edge-computer neemt camerabeelden en gewrichtsstanden op in het LeRobot-dataformaat.</p></div></li>
+                <li><span class="dot">2</span><div><h4>Demonstraties</h4><p>Ontbreekt de vaardigheid, dan doet de operator de taak voor, bijvoorbeeld met een leader-arm. De edge-computer neemt camerabeelden en gewrichtsstanden op in het LeRobot-dataformaat.</p></div></li>
                 <li><span class="dot">3</span><div><h4>Upload</h4><p>De demonstraties gaan versleuteld naar de vaardigheidsbibliotheek van de klant in onze cloud. Dit is het enige moment waarop data de fabriek verlaat.</p></div></li>
                 <li><span class="dot">4</span><div><h4>Training</h4><p>De trainingspipeline fine-tunet het gekozen basismodel (zoals SmolVLA) op onze GPU's. De klant betaalt per trainingsrun.</p></div></li>
                 <li><span class="dot">5</span><div><h4>Testen</h4><p>Simulatie en evaluatie draaien de taak honderden keren met variatie in positie, licht en aantal objecten, en leveren een testrapport met slagingspercentage.</p></div></li>
-                <li class="safe"><span class="dot">6</span><div><h4>Goedkeuring</h4><p>De operator ziet plan, testscore en modelversie in de interface en geeft akkoord. Zonder akkoord gebeurt er niets op de echte arm.</p></div></li>
+                <li class="safe"><span class="dot">6</span><div><h4>Goedkeuring</h4><p>De operator ziet plan, testscore en modelversie in de interface en geeft akkoord. Zonder akkoord gebeurt er niets op de echte robot.</p></div></li>
                 <li><span class="dot">7</span><div><h4>Uitrol</h4><p>Het goedgekeurde model wordt naar de edge-computer gestuurd. Vanaf nu draait alles lokaal.</p></div></li>
                 <li><span class="dot">8</span><div><h4>Uitvoering</h4><p>De policy draait op de edge-computer, de camera kijkt mee, en de veiligheidslaag bewaakt elke beweging. De robot blijft werken als het internet wegvalt.</p></div></li>
                 <li><span class="dot">9</span><div><h4>Terugkoppeling</h4><p>Elke run wordt lokaal gelogd. Mislukte pogingen kunnen, als de klant dat wil, terug naar de cloud als nieuwe trainingsdata voor de volgende versie.</p></div></li>
