@@ -1,6 +1,6 @@
-# Motiq Lab – website
+# Mushin Lab – website
 
-Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap).
+Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap). Logo: `logo.svg`, favicon: `favicon.svg`.
 
 | Pagina | Bestand |
 | --- | --- |
