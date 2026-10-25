@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architectuur: wat draait waar · Mushin lab</title>
+  <meta name="description" content="Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.">
+  <meta property="og:title" content="Architectuur: wat draait waar · Mushin lab">
+  <meta property="og:description" content="Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.">
+  <meta property="og:site_name" content="Mushin lab">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="ml-header">
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <nav aria-label="Hoofdmenu">
+        <ul class="ml-header__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" aria-current="true">Research</a></li>
+        <li><a href="aanpak.html">Aanpak</a></li>
+        <li><a href="bronnen.html">Bronnen</a></li>
+        </ul>
+      </nav>
+      <div class="ml-header__end">
+        <a class="ml-btn ml-btn--label" href="#contact">Contact</a>
+        <details class="menu">
+          <summary>Menu</summary>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html" aria-current="true">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Note 03</span> · Systeem · Systeemontwerp</span>
+        <h1>Architectuur: wat draait waar</h1>
+        <p class="dek">Alles wat de robot nodig heeft om te wérken draait bij de klant; alles wat nodig is om te léren draait in onze cloud.</p>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>3 min</span></div>
+      </div></div>
+    </header>
+
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#onderdelen"><span class="n">1</span>De onderdelen</a></li>
+          <li><a href="#stroom"><span class="n">2</span>Van opdracht tot robot</a></li>
+          <li><a href="#keuzes"><span class="n">3</span>Drie ontwerpkeuzes</a></li>
+          <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
+        </ol>
+      </aside>
+
+      <article class="content">
+        <section id="onderdelen">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Het systeem is in tweeën gedeeld. Zo blijft de werkvloer draaien zonder internet, en gebruiken we onze GPU's alleen waar ze nodig zijn. Data verlaat de fabriek alleen om een nieuwe vaardigheid te trainen.</p>
+          </div>
+          <h2><span class="n">1</span>De onderdelen</h2>
+          <figure class="fig">
+            <div class="fig-body">
+              <div class="split" role="img" aria-label="Twee kolommen: bij de klant de operator-interface, edge-computer, camera's met leader-arm en de robotarm; in de Mushin lab cloud de planner-agent, trainingspipeline, simulatie en evaluatie en de vaardigheidsbibliotheek.">
+                <div class="split-col">
+                  <span class="kicker">Bij de klant · werken</span>
+                  <div class="arch-layer"><h4>Operator-interface</h4><p>Browser of tablet: opdracht geven, demonstraties starten, plan en testscore bekijken, goedkeuren</p></div>
+                  <div class="arch-layer arch-safety"><h4>Edge-computer</h4><p>PC of NVIDIA Jetson naast de arm: veiligheidslaag, LeRobot-runtime, inferentie van de getrainde policy, lokaal logboek</p></div>
+                  <div class="arch-layer"><h4>Camera's en leader-arm</h4><p>Waarnemen tijdens uitvoering; demonstraties opnemen tijdens het leren</p></div>
+                  <div class="arch-layer"><h4>Robotarm</h4><p>Voert de vaardigheid uit, ook als de verbinding wegvalt</p></div>
+                </div>
+                <div class="split-mid" aria-hidden="true"><span class="to-cloud">demo's</span><span class="to-edge">model</span></div>
+                <div class="split-col">
+                  <span class="kicker">Mushin lab cloud · leren</span>
+                  <div class="arch-layer"><h4>Planner-agent</h4><p>LLM via API: vertaalt de opdracht naar een plan en kiest basismodel en data</p></div>
+                  <div class="arch-layer"><h4>Trainingspipeline</h4><p>Onze GPU's: fine-tunet het basismodel op de demonstraties van de klant</p></div>
+                  <div class="arch-layer"><h4>Simulatie en evaluatie</h4><p>Voert de taak honderden keren virtueel uit en maakt een testrapport</p></div>
+                  <div class="arch-layer"><h4>Vaardigheidsbibliotheek</h4><p>Per klant afgeschermd: bewaart modellen, datasets en versies; eigendom van de klant</p></div>
+                </div>
+              </div>
+            </div>
+            <figcaption><b>Figuur 1.</b> Wat draait bij de klant en wat in de cloud. Demonstraties gaan versleuteld naar de cloud; het goedgekeurde model komt terug naar de edge-computer.</figcaption>
+          </figure>
+        </section>
+
+        <section id="stroom">
+          <h2><span class="n">2</span>De stroom van opdracht tot werkende robot</h2>
+          <figure class="fig">
+            <div class="fig-body">
+              <ol class="process">
+                <li><span class="dot">1</span><div><h4>Opdracht</h4><p>De operator typt de taak in de interface. De planner-agent in de cloud maakt er een plan van en zoekt in de bibliotheek of een passende vaardigheid al bestaat.</p></div></li>
+                <li><span class="dot">2</span><div><h4>Demonstraties</h4><p>Ontbreekt de vaardigheid, dan doet de operator de taak voor met de leader-arm. De edge-computer neemt camerabeelden en gewrichtsstanden op in het LeRobot-dataformaat.</p></div></li>
+                <li><span class="dot">3</span><div><h4>Upload</h4><p>De demonstraties gaan versleuteld naar de vaardigheidsbibliotheek van de klant in onze cloud. Dit is het enige moment waarop data de fabriek verlaat.</p></div></li>
+                <li><span class="dot">4</span><div><h4>Training</h4><p>De trainingspipeline fine-tunet het gekozen basismodel (zoals SmolVLA) op onze GPU's. De klant betaalt per trainingsrun.</p></div></li>
+                <li><span class="dot">5</span><div><h4>Testen</h4><p>Simulatie en evaluatie draaien de taak honderden keren met variatie in positie, licht en aantal objecten, en leveren een testrapport met slagingspercentage.</p></div></li>
+                <li class="safe"><span class="dot">6</span><div><h4>Goedkeuring</h4><p>De operator ziet plan, testscore en modelversie in de interface en geeft akkoord. Zonder akkoord gebeurt er niets op de echte arm.</p></div></li>
+                <li><span class="dot">7</span><div><h4>Uitrol</h4><p>Het goedgekeurde model wordt naar de edge-computer gestuurd. Vanaf nu draait alles lokaal.</p></div></li>
+                <li><span class="dot">8</span><div><h4>Uitvoering</h4><p>De policy draait op de edge-computer, de camera kijkt mee, en de veiligheidslaag bewaakt elke beweging. De robot blijft werken als het internet wegvalt.</p></div></li>
+                <li><span class="dot">9</span><div><h4>Terugkoppeling</h4><p>Elke run wordt lokaal gelogd. Mislukte pogingen kunnen, als de klant dat wil, terug naar de cloud als nieuwe trainingsdata voor de volgende versie.</p></div></li>
+              </ol>
+            </div>
+            <figcaption><b>Figuur 2.</b> De stroom van opdracht tot werkende robot. Stap 6 is de menselijke poort.</figcaption>
+          </figure>
+        </section>
+
+        <section id="keuzes">
+          <h2><span class="n">3</span>Drie ontwerpkeuzes die hieruit volgen</h2>
+          <div class="three">
+            <div><h4>Werkt offline</h4><p>Een fabriek mag niet stilvallen omdat een verbinding wegvalt. Alleen een níeuwe taak leren vraagt internet.</p></div>
+            <div><h4>Veiligheid lokaal en los van de AI</h4><p>De veiligheidslaag draait op de edge-computer en kent geen cloud; limieten en noodstop werken altijd, ook als de modellen falen.</p></div>
+            <div><h4>Data blijft van de klant</h4><p>De bibliotheek is per klant afgeschermd. Wat wij met demonstraties mogen doen, vraagt een expliciete afspraak.</p></div>
+          </div>
+          <p>Dat laatste is nog een open punt; zie de principes in <a href="aanpak.html#principes">Aanpak</a>.</p>
+        </section>
+
+        <section id="citeren">
+          <h2><span class="n">C</span>Citeer deze note</h2>
+          <p class="citation">Mushin lab (2026). <em>Architectuur: wat draait waar</em>. Research note 03, versie 0.1. https://cschoorl.github.io/Motiq-Lab/architectuur.html</p>
+        </section>
+      </article>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <span class="section-label">Verder lezen</span>
+        <ul class="cards">
+          <li class="card" data-cat="mvp">
+            <a href="mvp.html">
+              <div class="cover cover-mvp" aria-hidden="true"><span class="cover-no">04</span><span class="cover-lines"></span></div>
+              <span class="kicker">MVP · Onderzoeksplan</span>
+              <h3>Onderzoeksplan: de MVP</h3>
+              <p>Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="systeem">
+            <a href="lerobot.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">05</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Technische analyse</span>
+              <h3>Bouwen op LeRobot</h3>
+              <p>Wat de open-source bibliotheek van Hugging Face al levert, en waar onze eigen waarde zit.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="veiligheid">
+            <a href="veiligheid.html">
+              <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">06</span><span class="cover-lines"></span></div>
+              <span class="kicker">Veiligheid · Ontwerpprincipe</span>
+              <h3>Veiligheid als ontwerpprincipe</h3>
+              <p>Waarom veiligheid buiten de AI-modellen zit, welke maatregelen elke beweging bewaken en welke normen gelden.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h4>Over</h4>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+        </div>
+        <div>
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+          </ul>
+        </div>
+        <div id="contact">
+          <h4>Contact</h4>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
+          <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
+               <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
+          <p><span class="placeholder">[jouw-e-mailadres]</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
+    </div>
+  </footer>
+</body>
+</html>

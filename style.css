@@ -623,3 +623,20 @@ td:first-child { color: var(--ink); font-weight: 600; width: 27%; }
   html { scroll-behavior: auto; }
   .ml-btn, .cta-row a, .more::after { transition: none; }
 }
+
+/* Architectuur: twee kolommen (bij de klant · in de cloud) */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-16); align-items: stretch; }
+.split-col { display: flex; flex-direction: column; gap: var(--space-8); }
+.split-col > .kicker { text-align: center; margin-bottom: var(--space-8); color: var(--ink); }
+.split-col .arch-layer { text-align: left; flex: 1; }
+.split-mid { display: flex; flex-direction: column; justify-content: center; gap: var(--space-16); font-family: var(--font-mono); font-size: 15px; line-height: 24px; color: var(--agent); white-space: nowrap; }
+@media (max-width: 640px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split-mid { flex-direction: row; justify-content: center; }
+}
+.split-mid .to-cloud::after { content: " →"; }
+.split-mid .to-edge::before { content: "← "; }
+@media (max-width: 640px) {
+  .split-mid .to-cloud::after { content: " ↓"; }
+  .split-mid .to-edge::before { content: "↑ "; }
+}

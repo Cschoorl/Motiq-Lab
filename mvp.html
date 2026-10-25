@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onderzoeksplan: de MVP · Mushin Lab</title>
-  <meta name="description" content="Scope, techstack, fasering in acht weken, succescriteria en risico&#x27;s van het eerste prototype.">
-  <meta property="og:title" content="Onderzoeksplan: de MVP · Mushin Lab">
-  <meta property="og:description" content="Scope, techstack, fasering in acht weken, succescriteria en risico&#x27;s van het eerste prototype.">
-  <meta property="og:site_name" content="Mushin Lab">
+  <title>Onderzoeksplan: de MVP · Mushin lab</title>
+  <meta name="description" content="Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.">
+  <meta property="og:title" content="Onderzoeksplan: de MVP · Mushin lab">
+  <meta property="og:description" content="Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.">
+  <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 
   <header class="site-header">
     <div class="ml-header">
-      <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
@@ -52,7 +52,7 @@
         <span class="kicker"><span class="accent">Note 04</span> · MVP · Onderzoeksplan</span>
         <h1>Onderzoeksplan: de MVP</h1>
         <p class="dek">De MVP bewijst één ding: een opdracht in gewone taal wordt zonder handmatig programmeren een werkende robottaak, met een mens die de laatste stap goedkeurt.</p>
-        <div class="byline"><span><b>Door</b>Mushin Lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>5 min</span></div>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>4 min</span></div>
       </div></div>
     </header>
 
@@ -65,8 +65,7 @@
                     <li><a href="#fasering"><span class="n">3</span>Fasering</a></li>
           <li><a href="#veiligheid"><span class="n">4</span>Veiligheid</a></li>
           <li><a href="#succes"><span class="n">5</span>Succescriteria</a></li>
-          <li><a href="#risicos"><span class="n">6</span>Risico's</a></li>
-          <li><a href="#nu"><span class="n">7</span>Waar we nu staan</a></li>
+                    <li><a href="#nu"><span class="n">6</span>Waar we nu staan</a></li>
           <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
           <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
         </ol>
@@ -101,7 +100,7 @@
               </ul>
             </div>
           </div>
-          <p><strong>Gebruiker:</strong> de founder zelf, via een simpele webinterface of chat. De architectuur staat in <a href="hoe-het-werkt.html#architectuur">note 01, figuur 2</a>; wat LeRobot levert in <a href="lerobot.html">note 05</a>.</p>
+          <p><strong>Gebruiker:</strong> de founder zelf, via een simpele webinterface of chat. De architectuur staat in <a href="hoe-het-werkt.html#architectuur">note 02, figuur 2</a>; wat LeRobot levert in <a href="lerobot.html">note 05</a>.</p>
         </section>
 
         <section id="techstack">
@@ -164,30 +163,11 @@
           </ul>
         </section>
 
-        <section id="risicos">
-          <h2><span class="n">6</span>Risico's</h2>
-          <p>Het grootste risico is dat wat in simulatie werkt, op de echte arm faalt; daarom traint de MVP eerst op echte demonstraties.</p>
-          <div class="table">
-            <span class="kicker">Tabel 3 · Risico's en aanpak</span>
-            <table>
-              <thead><tr><th scope="col">Risico</th><th scope="col">Gevolg</th><th scope="col">Aanpak</th></tr></thead>
-              <tbody>
-                <tr><td>Sim-to-real gap</td><td data-label="Gevolg">Model faalt op echte arm</td><td data-label="Aanpak">Echte demo's als basis, simulatie alleen als aanvulling</td></tr>
-                <tr><td>Te weinig of rommelige data</td><td data-label="Gevolg">Lage slagingskans</td><td data-label="Aanpak">Vaste opstelling, gelijk licht, 50+ demo's per kleur</td></tr>
-                <tr><td>Geen eigen GPU</td><td data-label="Gevolg">Trainen duurt lang</td><td data-label="Aanpak">Cloud-GPU huren voor fine-tunen</td></tr>
-                <tr><td>Agent maakt verkeerd plan</td><td data-label="Gevolg">Fout gesorteerd</td><td data-label="Aanpak">Plan altijd tonen en laten goedkeuren</td></tr>
-                <tr><td>Afhankelijk van LeRobot</td><td data-label="Gevolg">Koerswijziging na overname van Hugging Face door Nvidia</td><td data-label="Aanpak">Agentlaag los houden van één bibliotheek; open source blijft forkbaar</td></tr>
-                <tr><td>Naam “Mushin Lab” bezet</td><td data-label="Gevolg">Later gedwongen rebranden</td><td data-label="Aanpak">Domein, TMview en BOIP (klasse 7, 9, 42) checken vóór gebruik</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
         <section id="nu">
-          <h2><span class="n">7</span>Waar we nu staan</h2>
+          <h2><span class="n">6</span>Waar we nu staan</h2>
           <p>Fase: idee en plan. De eerstvolgende stappen:</p>
           <ul class="boxes">
-            <li>10 gesprekken met plaatbewerkers voeren</li>
+            <li>10 gesprekken met bedrijven voeren om de eerste toepassing te kiezen</li>
             <li>Een robot-learning-expert spreken over haalbaarheid</li>
             <li>SO-101 bestellen, bouwen en kalibreren</li>
             <li>Naam, domein en merkregister checken</li>
@@ -208,7 +188,7 @@
 
         <section id="citeren">
           <h2><span class="n">C</span>Citeer deze note</h2>
-          <p class="citation">Mushin Lab (2026). <em>Onderzoeksplan: de MVP</em>. Research note 04, versie 0.1. https://cschoorl.github.io/Motiq-Lab/mvp.html</p>
+          <p class="citation">Mushin lab (2026). <em>Onderzoeksplan: de MVP</em>. Research note 04, versie 0.1. https://cschoorl.github.io/Motiq-Lab/mvp.html</p>
         </section>
       </article>
     </div>
@@ -231,16 +211,16 @@
               <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">06</span><span class="cover-lines"></span></div>
               <span class="kicker">Veiligheid · Ontwerpprincipe</span>
               <h3>Veiligheid als ontwerpprincipe</h3>
-              <p>Waarom veiligheid buiten de AI-modellen zit, en welke vijf maatregelen elke beweging bewaken.</p>
+              <p>Waarom veiligheid buiten de AI-modellen zit, welke maatregelen elke beweging bewaken en welke normen gelden.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
-          <li class="card" data-cat="validatie">
-            <a href="validatie.html">
-              <div class="cover cover-validatie" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
-              <span class="kicker">Validatie · Protocol</span>
-              <h3>Validatieplan: tien gesprekken met plaatbewerkers</h3>
-              <p>Vijf vragen en één beslisregel om de niche te toetsen voordat we verder bouwen.</p>
+          <li class="card" data-cat="veiligheid">
+            <a href="discipline.html">
+              <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
+              <span class="kicker">Veiligheid · Werkwijze</span>
+              <h3>Discipline rond de agent</h3>
+              <p>Vibecoding in robotica werkt alleen binnen engineeringdiscipline: zes regels voor hoe we bouwen en hoe de agent werkt.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -252,13 +232,13 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
-        <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Vibecoding voor robots.</p>
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin Lab onderzoekt hoe een robotarm een taak leert uit gewone taal en een paar demonstraties.</p>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
@@ -272,13 +252,13 @@
         </div>
         <div id="contact">
           <h4>Contact</h4>
-          <p>Founder, expert, investeerder of plaatbewerker? Neem contact op.</p>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
           <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
                <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
           <p><span class="placeholder">[jouw-e-mailadres]</span></p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Mushin Lab · Versie 0.1 · Idee en plan</div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
     </div>
   </footer>
 </body>

@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research · Mushin Lab</title>
-  <meta name="description" content="Alle research notes van Mushin Lab: systeemontwerp, markt, MVP, veiligheid en validatie.">
-  <meta property="og:title" content="Research · Mushin Lab">
-  <meta property="og:description" content="Alle research notes van Mushin Lab: systeemontwerp, markt, MVP, veiligheid en validatie.">
-  <meta property="og:site_name" content="Mushin Lab">
+  <title>Research · Mushin lab</title>
+  <meta name="description" content="Alle research notes van Mushin lab: probleem, systeemontwerp, MVP, veiligheid, markt en validatie.">
+  <meta property="og:title" content="Research · Mushin lab">
+  <meta property="og:description" content="Alle research notes van Mushin lab: probleem, systeemontwerp, MVP, veiligheid, markt en validatie.">
+  <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 
   <header class="site-header">
     <div class="ml-header">
-      <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
@@ -51,8 +51,8 @@
       <div class="wrap"><div class="inner">
         <span class="kicker">Research</span>
         <h1>Research notes</h1>
-        <p class="dek">Werkdocumenten over hoe een robotarm een taak leert uit gewone taal en een paar demonstraties: systeemontwerp, markt, het MVP-plan, veiligheid en validatie. Elke note vermeldt haar bronnen.</p>
-        <div class="byline"><span><b>Notes</b>7</span><span><b>Bronnen</b>27</span><span><b>Versie</b>0.1</span></div>
+        <p class="dek">Werkdocumenten over hoe een robot een taak leert door het een paar keer te laten zien: het probleem, het systeemontwerp, het MVP-plan, veiligheid, de markt en validatie. Elke note vermeldt haar bronnen.</p>
+        <div class="byline"><span><b>Notes</b>11</span><span><b>Bronnen</b>34</span><span><b>Versie</b>0.1</span></div>
       </div></div>
     </header>
 
@@ -66,30 +66,30 @@
           <input type="radio" name="filter" id="f-veiligheid"><label for="f-veiligheid">Veiligheid</label>
           <input type="radio" name="filter" id="f-validatie"><label for="f-validatie">Validatie</label>
           <ul class="cards cards-index">
+          <li class="card" data-cat="markt">
+            <a href="probleem.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">01</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Het probleem en de oplossing</h3>
+              <p>Robots zijn betaalbaar geworden, ze iets leren nog niet. Wat dat kost, en hoe agents de engineer vervangen.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
           <li class="card" data-cat="systeem">
             <a href="hoe-het-werkt.html">
-              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">01</span><span class="cover-lines"></span></div>
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
               <span class="kicker">Systeem · Systeemontwerp</span>
               <h3>Systeemontwerp: van opdracht naar robottaak</h3>
               <p>Tien stappen van opdracht in gewone taal tot uitvoering op de echte arm, en de architectuur in vijf lagen.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
-          <li class="card" data-cat="markt">
-            <a href="markt.html">
-              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
-              <span class="kicker">Markt · Desk research</span>
-              <h3>Marktanalyse: sorteren na lasersnijden</h3>
-              <p>Waarom mkb-plaatbewerkers nog met de hand sorteren, wat er al bestaat en waar het gat in de markt zit.</p>
-              <span class="more">Lees de note</span>
-            </a>
-          </li>
-          <li class="card" data-cat="markt">
-            <a href="concurrentie.html">
-              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">03</span><span class="cover-lines"></span></div>
-              <span class="kicker">Markt · Desk research</span>
-              <h3>Concurrentie en positionering</h3>
-              <p>Van TRUMPF en AMADA tot Schematik en LeLab: wie doet wat, en waar Mushin Lab zich onderscheidt.</p>
+          <li class="card" data-cat="systeem">
+            <a href="architectuur.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">03</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Systeemontwerp</span>
+              <h3>Architectuur: wat draait waar</h3>
+              <p>Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -98,7 +98,7 @@
               <div class="cover cover-mvp" aria-hidden="true"><span class="cover-no">04</span><span class="cover-lines"></span></div>
               <span class="kicker">MVP · Onderzoeksplan</span>
               <h3>Onderzoeksplan: de MVP</h3>
-              <p>Scope, techstack, fasering in acht weken, succescriteria en risico's van het eerste prototype.</p>
+              <p>Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -116,16 +116,52 @@
               <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">06</span><span class="cover-lines"></span></div>
               <span class="kicker">Veiligheid · Ontwerpprincipe</span>
               <h3>Veiligheid als ontwerpprincipe</h3>
-              <p>Waarom veiligheid buiten de AI-modellen zit, en welke vijf maatregelen elke beweging bewaken.</p>
+              <p>Waarom veiligheid buiten de AI-modellen zit, welke maatregelen elke beweging bewaken en welke normen gelden.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="veiligheid">
+            <a href="discipline.html">
+              <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
+              <span class="kicker">Veiligheid · Werkwijze</span>
+              <h3>Discipline rond de agent</h3>
+              <p>Vibecoding in robotica werkt alleen binnen engineeringdiscipline: zes regels voor hoe we bouwen en hoe de agent werkt.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="markt.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">08</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Mogelijke eerste toepassing: sorteren na lasersnijden</h3>
+              <p>Eén van de opties voor de eerste toepassing: waarom plaatbewerkers nog met de hand sorteren en wat er al bestaat.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="concurrentie.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">09</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Concurrentie en positionering</h3>
+              <p>Van TRUMPF en AMADA tot Schematik en LeLab: wie doet wat, en waar Mushin lab zich onderscheidt.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="markten.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">10</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Markten wereldwijd</h3>
+              <p>Het probleem is overal hetzelfde. Waarom Nederland de testmarkt is, en daarna Duitsland en de VS.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
           <li class="card" data-cat="validatie">
             <a href="validatie.html">
-              <div class="cover cover-validatie" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
+              <div class="cover cover-validatie" aria-hidden="true"><span class="cover-no">11</span><span class="cover-lines"></span></div>
               <span class="kicker">Validatie · Protocol</span>
-              <h3>Validatieplan: tien gesprekken met plaatbewerkers</h3>
-              <p>Vijf vragen en één beslisregel om de niche te toetsen voordat we verder bouwen.</p>
+              <h3>Validatieplan: gesprekken met bedrijven</h3>
+              <p>Tien gesprekken om de eerste toepassing te kiezen, met vaste vragen en een beslisregel.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -139,13 +175,13 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
-        <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Vibecoding voor robots.</p>
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin Lab onderzoekt hoe een robotarm een taak leert uit gewone taal en een paar demonstraties.</p>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
@@ -159,13 +195,13 @@
         </div>
         <div id="contact">
           <h4>Contact</h4>
-          <p>Founder, expert, investeerder of plaatbewerker? Neem contact op.</p>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
           <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
                <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
           <p><span class="placeholder">[jouw-e-mailadres]</span></p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Mushin Lab · Versie 0.1 · Idee en plan</div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
     </div>
   </footer>
 </body>

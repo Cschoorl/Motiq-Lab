@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discipline rond de agent · Mushin lab</title>
+  <meta name="description" content="Vibecoding in robotica werkt alleen binnen engineeringdiscipline: zes regels voor hoe we bouwen en hoe de agent werkt.">
+  <meta property="og:title" content="Discipline rond de agent · Mushin lab">
+  <meta property="og:description" content="Vibecoding in robotica werkt alleen binnen engineeringdiscipline: zes regels voor hoe we bouwen en hoe de agent werkt.">
+  <meta property="og:site_name" content="Mushin lab">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="ml-header">
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <nav aria-label="Hoofdmenu">
+        <ul class="ml-header__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" aria-current="true">Research</a></li>
+        <li><a href="aanpak.html">Aanpak</a></li>
+        <li><a href="bronnen.html">Bronnen</a></li>
+        </ul>
+      </nav>
+      <div class="ml-header__end">
+        <a class="ml-btn ml-btn--label" href="#contact">Contact</a>
+        <details class="menu">
+          <summary>Menu</summary>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html" aria-current="true">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Note 07</span> · Veiligheid · Werkwijze</span>
+        <h1>Discipline rond de agent</h1>
+        <p class="dek">Vibecoding in robotica werkt alleen binnen engineeringdiscipline, niet als vervanging ervan. Dat geldt voor hoe wij bouwen én voor hoe onze agent werkt.</p>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>2 min</span></div>
+      </div></div>
+    </header>
+
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#regels"><span class="n">1</span>Zes regels</a></li>
+          <li><a href="#faalwijze"><span class="n">2</span>De grootste faalwijze</a></li>
+          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
+          <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
+        </ol>
+      </aside>
+
+      <article class="content">
+        <section id="regels">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Bouwen in kleine stappen rond LeRobot, eerst tests en dan pas trainen, valideren in lagen, en niets op de echte arm dat niet in simulatie is bewezen. Bij veiligheid ligt de lat hoger: goedkeuring op bewijs.</p>
+          </div>
+          <h2><span class="n">1</span>Zes regels</h2>
+          <p>Gebaseerd op <em>How to Use Vibe Coding in Robotics</em>.<a class="cite" href="#ref-1">1</a></p>
+          <ol class="principles">
+            <li><h4>Ankerrepository</h4><p>Bouw in kleine stappen rond LeRobot, nooit een eigen architectuur vanaf nul.</p></li>
+            <li><h4>Tests vóór implementatie</h4><p>De agent definieert eerst slagingscriteria, randgevallen en faalscenario's voor een vaardigheid, en traint of voert pas daarna uit. Zo wordt het testen in simulatie meetbaar.</p></li>
+            <li><h4>Valideren in lagen</h4><p>Statische checks en logica eerst, dan onderdelen apart, dan integratie, en pas aan het eind simulatie en hardware. De meeste fouten zitten in de koppelingen (parameters, topic-namen, configuratie), niet in het algoritme.</p></li>
+            <li><h4>Simulatie als grens</h4><p>Niets dat niet in simulatie is gevalideerd raakt de echte arm.</p></li>
+            <li><h4>CI als poort</h4><p>Elke wijziging moet bouwen en alle tests halen voordat hij verder mag.</p></li>
+            <li><h4>Hogere lat bij veiligheid</h4><p>Alles wat beweging, snelheid, stoppen, werkruimte of mens-robotinteractie raakt, wordt goedgekeurd op bewijs (tests, simulatie, faalscenario's), niet op "ziet er goed uit".</p></li>
+          </ol>
+        </section>
+
+        <section id="faalwijze">
+          <h2><span class="n">2</span>De grootste faalwijze</h2>
+          <p class="pull">Niet dat AI soms slechte code schrijft, maar dat een team zijn gevoel voor grenzen verliest omdat genereren zo makkelijk is.</p>
+          <p>Juist een bedrijf dat vibecoding voor robots doet, moet daar het strengst in zijn. Hoe de veiligheidslaag zelf werkt, staat in <a href="veiligheid.html">note 06</a>.</p>
+        </section>
+
+        <section id="referenties">
+          <h2><span class="n">R</span>Referenties</h2>
+          <ol class="refs">
+            <li id="ref-1"><a href="https://zanerobotics.substack.com/" target="_blank" rel="noopener">Robotics Engineer's Digest: How to Use Vibe Coding in Robotics</a> <span class="src">· Substack</span></li>
+          </ol>
+        </section>
+
+        <section id="citeren">
+          <h2><span class="n">C</span>Citeer deze note</h2>
+          <p class="citation">Mushin lab (2026). <em>Discipline rond de agent</em>. Research note 07, versie 0.1. https://cschoorl.github.io/Motiq-Lab/discipline.html</p>
+        </section>
+      </article>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <span class="section-label">Verder lezen</span>
+        <ul class="cards">
+          <li class="card" data-cat="markt">
+            <a href="markt.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">08</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Mogelijke eerste toepassing: sorteren na lasersnijden</h3>
+              <p>Eén van de opties voor de eerste toepassing: waarom plaatbewerkers nog met de hand sorteren en wat er al bestaat.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="concurrentie.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">09</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Concurrentie en positionering</h3>
+              <p>Van TRUMPF en AMADA tot Schematik en LeLab: wie doet wat, en waar Mushin lab zich onderscheidt.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="markten.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">10</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Markten wereldwijd</h3>
+              <p>Het probleem is overal hetzelfde. Waarom Nederland de testmarkt is, en daarna Duitsland en de VS.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h4>Over</h4>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+        </div>
+        <div>
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+          </ul>
+        </div>
+        <div id="contact">
+          <h4>Contact</h4>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
+          <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
+               <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
+          <p><span class="placeholder">[jouw-e-mailadres]</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
+    </div>
+  </footer>
+</body>
+</html>

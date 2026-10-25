@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Het probleem en de oplossing · Mushin lab</title>
+  <meta name="description" content="Robots zijn betaalbaar geworden, ze iets leren nog niet. Wat dat kost, en hoe agents de engineer vervangen.">
+  <meta property="og:title" content="Het probleem en de oplossing · Mushin lab">
+  <meta property="og:description" content="Robots zijn betaalbaar geworden, ze iets leren nog niet. Wat dat kost, en hoe agents de engineer vervangen.">
+  <meta property="og:site_name" content="Mushin lab">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="ml-header">
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <nav aria-label="Hoofdmenu">
+        <ul class="ml-header__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" aria-current="true">Research</a></li>
+        <li><a href="aanpak.html">Aanpak</a></li>
+        <li><a href="bronnen.html">Bronnen</a></li>
+        </ul>
+      </nav>
+      <div class="ml-header__end">
+        <a class="ml-btn ml-btn--label" href="#contact">Contact</a>
+        <details class="menu">
+          <summary>Menu</summary>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html" aria-current="true">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Note 01</span> · Markt · Desk research</span>
+        <h1>Het probleem en de oplossing</h1>
+        <p class="dek">Robots zijn betaalbaar geworden; ze iets leren is dat nog niet. Dat is het gat waar Mushin lab in past.</p>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>3 min</span></div>
+      </div></div>
+    </header>
+
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#probleem"><span class="n">1</span>Probleem</a></li>
+          <li><a href="#kosten"><span class="n">2</span>Waar het geld zit</a></li>
+          <li><a href="#oplossing"><span class="n">3</span>Oplossing</a></li>
+          <li><a href="#nu"><span class="n">4</span>Waarom nu</a></li>
+          <li><a href="#model"><span class="n">5</span>Klant en verdienmodel</a></li>
+          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
+          <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
+        </ol>
+      </aside>
+
+      <article class="content">
+        <section id="probleem">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Een robot iets nieuws leren vraagt een robotica-engineer, en integratie kost meer dan de arm zelf. Mushin lab vervangt die engineer door agents die trainen op jouw demonstraties, testen in simulatie en pas na goedkeuring uitvoeren.</p>
+          </div>
+          <h2><span class="n">1</span>Probleem</h2>
+          <p>Robots kunnen fysiek al bijna alles, maar ze iets nieuws leren vraagt een robotica-engineer: machine learning, data verzamelen, meten wat goed en fout gaat, code schrijven en alles veilig koppelen aan de werkvloer. Daarom blijft veel fysiek werk wereldwijd handwerk.</p>
+          <div class="three">
+            <div><h4>132 robots</h4><p>per 10.000 fabrieksmedewerkers gemiddeld, tegenover 1.220 in Zuid-Korea.<a class="cite" href="#ref-1">1</a></p></div>
+            <div><h4>3,8 miljoen</h4><p>nieuwe medewerkers nodig in de Amerikaanse industrie tot 2033; 1,9 miljoen plekken dreigen onvervuld te blijven.<a class="cite" href="#ref-2">2</a></p></div>
+            <div><h4>64%</h4><p>van de bedrijven in Nederland heeft personeelstekort.<a class="cite" href="#ref-3">3</a></p></div>
+          </div>
+        </section>
+
+        <section id="kosten">
+          <h2><span class="n">2</span>Waar het geld zit</h2>
+          <p class="pull">De robotarm is niet het dure deel.</p>
+          <p>De kale arm is meestal maar 25 tot 40% van de totale investering. De overige 60 tot 75% gaat naar randapparatuur, engineering, installatie en vooral programmeren en instellen; integratie alleen al is 30 tot 50% van een project.<a class="cite" href="#ref-4">4</a> Een cobot van 25.000 tot 70.000 dollar kost volledig geïntegreerd 40.000 tot 150.000 dollar.<a class="cite" href="#ref-5">5</a></p>
+          <p>Wie dat integratiedeel vervangt door voordoen, maakt robots rendabel voor kleine series en snelle omschakeling, de markt die grote integrators laten liggen.</p>
+        </section>
+
+        <section id="oplossing">
+          <h2><span class="n">3</span>Oplossing</h2>
+          <p>Mushin lab vervangt die engineer door agents: ze vertalen de opdracht naar vaardigheden, kiezen passende open-source robotmodellen en data, trainen op jouw demonstraties, testen in simulatie en vragen pas daarna om goedkeuring. Daarna draait de robot op de eigen werkvloer, en elke taak die het systeem leert maakt de volgende sneller.</p>
+          <p>Hoe dat stap voor stap werkt, staat in <a href="hoe-het-werkt.html">note 02</a>; wat waar draait in <a href="architectuur.html">note 03</a>.</p>
+        </section>
+
+        <section id="nu">
+          <h2><span class="n">4</span>Waarom nu</h2>
+          <p>Open robotmodellen (SmolVLA, GR00T) zijn sinds 2025 klein genoeg om op één GPU bij te trainen en op eigen hardware te draaien, en agents kunnen via MCP robots aansturen. Tegelijk wint het idee van personal AGI terrein: AI die je zelf bezit. Twee jaar geleden kon dit niet.</p>
+        </section>
+
+        <section id="model">
+          <h2><span class="n">5</span>Klant en verdienmodel</h2>
+          <ul>
+            <li><strong>Klant:</strong> bedrijven en industrie. De eerste toepassing kiezen we na klantgesprekken (<a href="validatie.html">note 11</a>).</li>
+            <li><strong>Verdienmodel (nog uit te werken):</strong> de robot draait bij de klant; het trainen gebeurt op onze GPU's, en daarvoor betaalt de klant naar gebruik.</li>
+            <li><strong>Volgende mijlpaal:</strong> werkende MVP en één betalende pilotklant.</li>
+          </ul>
+        </section>
+
+        <section id="referenties">
+          <h2><span class="n">R</span>Referenties</h2>
+          <ol class="refs">
+            <li id="ref-1"><a href="https://www.therobotreport.com/ifr-reports-robot-density-increase-across-europe-asia-americas/" target="_blank" rel="noopener">IFR reports robot density increase across Europe, Asia, Americas</a> <span class="src">· The Robot Report</span></li>
+            <li id="ref-2"><a href="https://themanufacturinginstitute.org/manufacturers-need-as-many-as-3-8-million-new-employees-by-2033/" target="_blank" rel="noopener">Manufacturers need as many as 3.8 million new employees by 2033</a> <span class="src">· Manufacturing Institute en Deloitte</span></li>
+            <li id="ref-3"><a href="https://nos.nl/l/2616914" target="_blank" rel="noopener">CBS via NOS</a> <span class="src">· nos.nl</span></li>
+            <li id="ref-4"><a href="https://amdmachines.com/blog/total-cost-of-ownership-for-robotic-systems/" target="_blank" rel="noopener">Total cost of ownership for robotic systems</a> <span class="src">· AMD Machines</span></li>
+            <li id="ref-5"><a href="https://atanrobotics.com/blog-posts/how-much-does-robot-automation-cost" target="_blank" rel="noopener">How much does robot automation cost</a> <span class="src">· Atan Robotics</span></li>
+          </ol>
+        </section>
+
+        <section id="citeren">
+          <h2><span class="n">C</span>Citeer deze note</h2>
+          <p class="citation">Mushin lab (2026). <em>Het probleem en de oplossing</em>. Research note 01, versie 0.1. https://cschoorl.github.io/Motiq-Lab/probleem.html</p>
+        </section>
+      </article>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <span class="section-label">Verder lezen</span>
+        <ul class="cards">
+          <li class="card" data-cat="systeem">
+            <a href="hoe-het-werkt.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Systeemontwerp</span>
+              <h3>Systeemontwerp: van opdracht naar robottaak</h3>
+              <p>Tien stappen van opdracht in gewone taal tot uitvoering op de echte arm, en de architectuur in vijf lagen.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="systeem">
+            <a href="architectuur.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">03</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Systeemontwerp</span>
+              <h3>Architectuur: wat draait waar</h3>
+              <p>Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="mvp">
+            <a href="mvp.html">
+              <div class="cover cover-mvp" aria-hidden="true"><span class="cover-no">04</span><span class="cover-lines"></span></div>
+              <span class="kicker">MVP · Onderzoeksplan</span>
+              <h3>Onderzoeksplan: de MVP</h3>
+              <p>Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h4>Over</h4>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+        </div>
+        <div>
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+          </ul>
+        </div>
+        <div id="contact">
+          <h4>Contact</h4>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
+          <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
+               <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
+          <p><span class="placeholder">[jouw-e-mailadres]</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
+    </div>
+  </footer>
+</body>
+</html>

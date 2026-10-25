@@ -1,4 +1,4 @@
-# Mushin Lab – website
+# Mushin lab – website
 
 Statische website (HTML + één `style.css`, geen JavaScript, geen build-stap).
 
@@ -8,15 +8,21 @@ De stijl volgt het Mushin-Lab design system (brandguide v3): kleuren, letters (Q
 | --- | --- |
 | Home | `index.html` |
 | Research (overzicht van alle notes, met filter) | `research.html` |
-| Aanpak (missie, principes, hypotheses, roadmap) | `aanpak.html` |
-| Bronnen (alle 27 bronnen) | `bronnen.html` |
-| Note 01 · Systeemontwerp | `hoe-het-werkt.html` |
-| Note 02 · Marktanalyse | `markt.html` |
-| Note 03 · Concurrentie | `concurrentie.html` |
+| Aanpak (naam, missie en visie, principes, hypotheses, route naar de maan) | `aanpak.html` |
+| Bronnen (alle 34 bronnen) | `bronnen.html` |
+| Note 01 · Het probleem en de oplossing | `probleem.html` |
+| Note 02 · Systeemontwerp | `hoe-het-werkt.html` |
+| Note 03 · Architectuur: wat draait waar | `architectuur.html` |
 | Note 04 · Onderzoeksplan MVP | `mvp.html` |
 | Note 05 · Bouwen op LeRobot | `lerobot.html` |
 | Note 06 · Veiligheid | `veiligheid.html` |
-| Note 07 · Validatieplan | `validatie.html` |
+| Note 07 · Discipline rond de agent | `discipline.html` |
+| Note 08 · Mogelijke eerste toepassing: lasersnijden | `markt.html` |
+| Note 09 · Concurrentie | `concurrentie.html` |
+| Note 10 · Markten wereldwijd | `markten.html` |
+| Note 11 · Validatieplan | `validatie.html` |
+
+De inhoud volgt het werkdocument "Robot Studio MVP-plan" (Mushin lab). De interne hoofdstukken (netwerk, cofounder zoeken, risico's) staan bewust niet op de site.
 
 ## Contactadres invullen
 

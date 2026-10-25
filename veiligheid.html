@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Veiligheid als ontwerpprincipe · Mushin Lab</title>
-  <meta name="description" content="Waarom veiligheid buiten de AI-modellen zit, en welke vijf maatregelen elke beweging bewaken.">
-  <meta property="og:title" content="Veiligheid als ontwerpprincipe · Mushin Lab">
-  <meta property="og:description" content="Waarom veiligheid buiten de AI-modellen zit, en welke vijf maatregelen elke beweging bewaken.">
-  <meta property="og:site_name" content="Mushin Lab">
+  <title>Veiligheid als ontwerpprincipe · Mushin lab</title>
+  <meta name="description" content="Waarom veiligheid buiten de AI-modellen zit, welke maatregelen elke beweging bewaken en welke normen gelden.">
+  <meta property="og:title" content="Veiligheid als ontwerpprincipe · Mushin lab">
+  <meta property="og:description" content="Waarom veiligheid buiten de AI-modellen zit, welke maatregelen elke beweging bewaken en welke normen gelden.">
+  <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -21,7 +21,7 @@
 
   <header class="site-header">
     <div class="ml-header">
-      <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
@@ -52,7 +52,7 @@
         <span class="kicker"><span class="accent">Note 06</span> · Veiligheid · Ontwerpprincipe</span>
         <h1>Veiligheid als ontwerpprincipe</h1>
         <p class="dek">Veiligheid zit buiten de AI-modellen: geen model mag een beweging uitvoeren die de veiligheidslaag niet toestaat.</p>
-        <div class="byline"><span><b>Door</b>Mushin Lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>3 min</span></div>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>3 min</span></div>
       </div></div>
     </header>
 
@@ -64,7 +64,8 @@
           <li><a href="#laag"><span class="n">2</span>De veiligheidslaag</a></li>
           <li><a href="#maatregelen"><span class="n">3</span>Vijf maatregelen</a></li>
           <li><a href="#grenzen"><span class="n">4</span>Grenzen van de MVP</a></li>
-          <li><a href="#toetsen"><span class="n">5</span>Hoe we het toetsen</a></li>
+          <li><a href="#normen"><span class="n">5</span>Normen</a></li>
+          <li><a href="#toetsen"><span class="n">6</span>Hoe we het toetsen</a></li>
           <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
           <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
         </ol>
@@ -78,7 +79,7 @@
           </div>
           <h2><span class="n">1</span>Het principe</h2>
           <p class="pull">De agent stuurt nooit zelf motoren aan.</p>
-          <p>In het stappenplan van <a href="hoe-het-werkt.html#stappen">note 01</a> vormen stap 7 en 8 de veiligheidspoort: eerst een veiligheidscheck (elke beweging moet binnen de werkruimte en snelheidslimiet blijven), daarna goedkeuring door de mens, die plan, testscore en modelversie ziet. Pas na die klik draait het op de echte arm. Tijdens het uitvoeren blijft de noodstop altijd werken.</p>
+          <p>In het stappenplan van <a href="hoe-het-werkt.html#stappen">note 02</a> vormen stap 7 en 8 de veiligheidspoort: eerst een veiligheidscheck (elke beweging moet binnen de werkruimte en snelheidslimiet blijven), daarna goedkeuring door de mens, die plan, testscore en modelversie ziet. Pas na die klik draait het op de echte arm. Tijdens het uitvoeren blijft de noodstop altijd werken.</p>
         </section>
 
         <section id="laag">
@@ -104,7 +105,7 @@
                 </div>
               </div>
             </div>
-            <figcaption><b>Figuur 1.</b> Uitsnede van de architectuur uit note 01: alles wat naar de arm gaat, passeert eerst de veiligheidslaag.</figcaption>
+            <figcaption><b>Figuur 1.</b> Uitsnede van de architectuur uit note 02: alles wat naar de arm gaat, passeert eerst de veiligheidslaag.</figcaption>
           </figure>
         </section>
 
@@ -124,8 +125,26 @@
           <p>Google raadt zelf af om zijn robotica-modellen te gebruiken waar een storing letsel of schade kan veroorzaken.<a class="cite" href="#ref-1">1</a> Daarom houden we de MVP bij lichte blokjes en zonder mensen binnen bereik van de arm.</p>
         </section>
 
+        <section id="normen">
+          <h2><span class="n">5</span>Normen voor de fabriek</h2>
+          <p>De trage delen zijn niet de AI, maar koppelingen met verschillende robotmerken en veiligheidseisen per regio. Daar plannen we vanaf het begin tijd voor.<a class="cite" href="#ref-2">2</a></p>
+          <div class="table">
+            <span class="kicker">Tabel 1 · Veiligheidseisen</span>
+            <table>
+              <thead><tr><th scope="col">Waar</th><th scope="col">Norm of regel</th></tr></thead>
+              <tbody>
+                <tr><td>Europese Unie</td><td data-label="Norm of regel">CE-markering en de Machineverordening, die vanaf 2027 geldt</td></tr>
+                <tr><td>Verenigde Staten</td><td data-label="Norm of regel">ANSI/RIA R15.06</td></tr>
+                <tr><td>Wereldwijd</td><td data-label="Norm of regel">ISO 10218: deel 1 voor de robot, deel 2 voor het systeem</td></tr>
+                <tr><td>Veiligheidsfuncties</td><td data-label="Norm of regel">Snelheidsbewaking en veilig stoppen vallen onder ISO 13849-1 of IEC 62061</td></tr>
+                <tr><td>AI in een veiligheidsfunctie</td><td data-label="Norm of regel">Daarnaast ISO 5469 en ISO 5338</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section id="toetsen">
-          <h2><span class="n">5</span>Hoe we het toetsen</h2>
+          <h2><span class="n">6</span>Hoe we het toetsen</h2>
           <p>Drie van de succescriteria van de MVP (<a href="mvp.html#succes">note 04</a>) gaan over veiligheid:</p>
           <ul class="boxes">
             <li>Geen enkele beweging buiten de vaste werkruimte</li>
@@ -138,12 +157,13 @@
           <h2><span class="n">R</span>Referenties</h2>
           <ol class="refs">
             <li id="ref-1"><a href="https://www.unite.ai/?p=444299" target="_blank" rel="noopener">Artikel over veiligheid van Google's robotica-modellen</a> <span class="src">· Unite.AI</span></li>
+            <li id="ref-2"><a href="https://zanerobotics.substack.com/" target="_blank" rel="noopener">Robotics Engineer's Digest</a> <span class="src">· Substack</span></li>
           </ol>
         </section>
 
         <section id="citeren">
           <h2><span class="n">C</span>Citeer deze note</h2>
-          <p class="citation">Mushin Lab (2026). <em>Veiligheid als ontwerpprincipe</em>. Research note 06, versie 0.1. https://cschoorl.github.io/Motiq-Lab/veiligheid.html</p>
+          <p class="citation">Mushin lab (2026). <em>Veiligheid als ontwerpprincipe</em>. Research note 06, versie 0.1. https://cschoorl.github.io/Motiq-Lab/veiligheid.html</p>
         </section>
       </article>
     </div>
@@ -152,30 +172,30 @@
       <div class="wrap">
         <span class="section-label">Verder lezen</span>
         <ul class="cards">
-          <li class="card" data-cat="validatie">
-            <a href="validatie.html">
-              <div class="cover cover-validatie" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
-              <span class="kicker">Validatie · Protocol</span>
-              <h3>Validatieplan: tien gesprekken met plaatbewerkers</h3>
-              <p>Vijf vragen en één beslisregel om de niche te toetsen voordat we verder bouwen.</p>
-              <span class="more">Lees de note</span>
-            </a>
-          </li>
-          <li class="card" data-cat="systeem">
-            <a href="hoe-het-werkt.html">
-              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">01</span><span class="cover-lines"></span></div>
-              <span class="kicker">Systeem · Systeemontwerp</span>
-              <h3>Systeemontwerp: van opdracht naar robottaak</h3>
-              <p>Tien stappen van opdracht in gewone taal tot uitvoering op de echte arm, en de architectuur in vijf lagen.</p>
+          <li class="card" data-cat="veiligheid">
+            <a href="discipline.html">
+              <div class="cover cover-veiligheid" aria-hidden="true"><span class="cover-no">07</span><span class="cover-lines"></span></div>
+              <span class="kicker">Veiligheid · Werkwijze</span>
+              <h3>Discipline rond de agent</h3>
+              <p>Vibecoding in robotica werkt alleen binnen engineeringdiscipline: zes regels voor hoe we bouwen en hoe de agent werkt.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
           <li class="card" data-cat="markt">
             <a href="markt.html">
-              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">08</span><span class="cover-lines"></span></div>
               <span class="kicker">Markt · Desk research</span>
-              <h3>Marktanalyse: sorteren na lasersnijden</h3>
-              <p>Waarom mkb-plaatbewerkers nog met de hand sorteren, wat er al bestaat en waar het gat in de markt zit.</p>
+              <h3>Mogelijke eerste toepassing: sorteren na lasersnijden</h3>
+              <p>Eén van de opties voor de eerste toepassing: waarom plaatbewerkers nog met de hand sorteren en wat er al bestaat.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="markt">
+            <a href="concurrentie.html">
+              <div class="cover cover-markt" aria-hidden="true"><span class="cover-no">09</span><span class="cover-lines"></span></div>
+              <span class="kicker">Markt · Desk research</span>
+              <h3>Concurrentie en positionering</h3>
+              <p>Van TRUMPF en AMADA tot Schematik en LeLab: wie doet wat, en waar Mushin lab zich onderscheidt.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -187,13 +207,13 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-top">
-        <a class="ml-logo" href="index.html" aria-label="Mushin Lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Vibecoding voor robots.</p>
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin Lab onderzoekt hoe een robotarm een taak leert uit gewone taal en een paar demonstraties.</p>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
@@ -207,13 +227,13 @@
         </div>
         <div id="contact">
           <h4>Contact</h4>
-          <p>Founder, expert, investeerder of plaatbewerker? Neem contact op.</p>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
           <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
                <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
           <p><span class="placeholder">[jouw-e-mailadres]</span></p>
         </div>
       </div>
-      <div class="footer-bottom">© 2026 Mushin Lab · Versie 0.1 · Idee en plan</div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
     </div>
   </footer>
 </body>
