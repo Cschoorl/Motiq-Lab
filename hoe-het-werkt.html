@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hoe het werkt · Mushin lab</title>
-  <meta name="description" content="Beschrijf de taak, laat het een paar keer zien en geef akkoord. Zo leert een robot bij Mushin lab een nieuwe taak.">
+  <meta name="description" content="Beschrijf de taak in gewone taal en geef akkoord. De agents en voorgetrainde robotmodellen doen de rest.">
   <meta property="og:title" content="Hoe het werkt · Mushin lab">
-  <meta property="og:description" content="Beschrijf de taak, laat het een paar keer zien en geef akkoord. Zo leert een robot bij Mushin lab een nieuwe taak.">
+  <meta property="og:description" content="Beschrijf de taak in gewone taal en geef akkoord. De agents en voorgetrainde robotmodellen doen de rest.">
   <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -51,7 +51,7 @@
       <div class="wrap">
         <span class="ml-tagline"><span class="ml-tag">Hoe het werkt</span></span>
         <h1>Van opdracht tot werkende robot</h1>
-        <p class="dek">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
+        <p class="dek">Jij zegt wat er moet gebeuren. De agent is de projectleider, voorgetrainde modellen zijn de vakmensen, de simulatie is de oefenruimte, en jij tekent voor akkoord.</p>
       </div>
     </section>
 
@@ -62,21 +62,21 @@
         <div class="roles">
           <div class="ml-card">
             <span class="ml-card__eyebrow">jij</span>
-            <h3 class="ml-card__title">Drie dingen</h3>
+            <h3 class="ml-card__title">Twee dingen</h3>
             <ul class="boxes">
               <li>Je typt de opdracht in gewone taal.</li>
-              <li>Je doet de taak een paar keer voor.</li>
               <li>Je bekijkt plan, testscore en versie, en geeft akkoord.</li>
             </ul>
+            <p class="ml-card__body">Voordoen of programmeren is niet nodig.</p>
           </div>
           <div class="ml-card ml-card--agent">
             <span class="ml-card__eyebrow">de agents</span>
             <h3 class="ml-card__title">De rest</h3>
             <ul class="boxes">
               <li>Ze splitsen de opdracht op in vaardigheden.</li>
-              <li>Ze zoeken een passend robotmodel en bestaande data.</li>
-              <li>Ze trainen het model op jouw voorbeelden.</li>
-              <li>Ze testen de taak honderden keren in simulatie.</li>
+              <li>Ze kiezen een voorgetraind robotmodel en bestaande data.</li>
+              <li>Ze bouwen de taak na in simulatie, met variatie in positie, licht en aantal objecten.</li>
+              <li>Ze testen de taak honderden keren en trainen zelf bij waar dat nodig is.</li>
               <li>Ze controleren of elke beweging binnen de veiligheidsgrenzen blijft.</li>
               <li>Ze leren van fouten: mislukte pogingen worden nieuwe trainingsdata.</li>
             </ul>
@@ -92,8 +92,8 @@
         <p class="section-intro">Voorbeeld: “Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.”</p>
         <ol class="journey">
           <li><span class="journey-no">1</span><div><h3>Opdracht</h3><p>Je typt de taak in de webinterface, zonder code. De agent maakt er een plan van: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
-          <li><span class="journey-no">2</span><div><h3>Voordoen</h3><p>Kan de robot iets nog niet, dan doe je het voor. In het eerste prototype is dat 50 tot 100 keer per beweging.</p></div></li>
-          <li><span class="journey-no">3</span><div><h3>Trainen en testen</h3><p>Op onze GPU's wordt een basismodel bijgetraind op jouw voorbeelden. Daarna doet de robot de taak honderden keren virtueel, met variatie in positie, licht en aantal objecten. Is de score te laag, dan gaat het terug naar voordoen of trainen.</p></div></li>
+          <li><span class="journey-no">2</span><div><h3>Model kiezen</h3><p>De agent kiest een voorgetraind robotmodel dat de vaardigheden al grotendeels beheerst, zoals SmolVLA of GR00T, en zoekt bestaande data die past.</p></div></li>
+          <li><span class="journey-no">3</span><div><h3>Testen en bijtrainen</h3><p>De robot doet de taak honderden keren virtueel, met variatie in positie, licht en aantal objecten. Is de score te laag, dan maken de agents nieuwe scenario's en trainen ze het model bij op onze GPU's, tot het betrouwbaar werkt.</p></div></li>
           <li class="journey-key"><span class="journey-no">4</span><div><h3>Jouw akkoord</h3><p>Je ziet het plan, de testscore en de modelversie. Zonder jouw klik gebeurt er niets op de echte robot.</p></div></li>
           <li><span class="journey-no">5</span><div><h3>Aan het werk</h3><p>Het goedgekeurde model draait op een computer naast de robot. De camera kijkt mee, de veiligheidslaag bewaakt elke beweging, en de robot blijft werken als het internet wegvalt.</p></div></li>
           <li><span class="journey-no">6</span><div><h3>Steeds beter</h3><p>Elke run wordt gelogd. Mislukte pogingen kunnen, als jij dat wilt, nieuwe trainingsdata worden voor de volgende versie.</p></div></li>
@@ -105,7 +105,7 @@
       <div class="wrap">
         <span class="section-label">Wat draait waar</span>
         <h2 class="section-title">Werken bij jou, leren bij ons</h2>
-        <p class="section-intro">Zo blijft je werkvloer draaien zonder internet. Data verlaat de fabriek alleen om een nieuwe taak te leren.</p>
+        <p class="section-intro">Zo blijft je werkvloer draaien zonder internet. Alleen een nieuwe taak leren gebeurt in de cloud.</p>
         <div class="where">
           <div class="ml-card">
             <span class="ml-card__eyebrow">bij jou</span>
@@ -117,14 +117,14 @@
               <li>Een lokaal logboek</li>
             </ul>
           </div>
-          <div class="where-arrow" aria-hidden="true"><span class="to-cloud">demonstraties</span><span class="to-edge">getraind model</span></div>
+          <div class="where-arrow" aria-hidden="true"><span class="to-cloud">opdracht</span><span class="to-edge">getraind model</span></div>
           <div class="ml-card">
             <span class="ml-card__eyebrow">in onze cloud</span>
             <h3 class="ml-card__title">Alles om te leren</h3>
             <ul class="ticks">
               <li>De agent die het plan maakt</li>
-              <li>Training op onze GPU's</li>
-              <li>Simulatie en testrapport</li>
+              <li>Simulatie en bijtrainen op onze GPU's</li>
+              <li>Het testrapport per versie</li>
               <li>Jouw vaardigheidsbibliotheek, alleen voor jou</li>
             </ul>
           </div>
@@ -199,12 +199,12 @@
     <div class="wrap">
       <div class="footer-top">
         <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+        <p class="footer-tag">Zeg het, en de robot doet het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Mushin lab is personal AGI voor de industrie: zeg je robot wat er moet gebeuren, de agents doen de rest, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>

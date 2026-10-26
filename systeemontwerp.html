@@ -72,7 +72,7 @@
         <section id="overzicht">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte robot.</p>
+            <p>Een gebruiker beschrijft een taak in gewone taal. Agents plannen de taak, kiezen een voorgetraind robotmodel, testen en trainen bij in simulatie, en vragen pas daarna om goedkeuring. Niemand hoeft de taak voor te doen. Pas na een menselijke klik draait het op de echte robot.</p>
           </div>
           <h2><span class="n">1</span>Overzicht</h2>
           <p>We gebruiken in deze note één doorlopend voorbeeld, ook de opdracht van de MVP:</p>
@@ -87,9 +87,9 @@
               <ol class="process">
                 <li><span class="dot">01</span><div><h4>Opdracht geven</h4><p>Je typt de opdracht in de webinterface, zonder code.</p></div></li>
                 <li><span class="dot">02</span><div><h4>Plan maken</h4><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
-                <li><span class="dot">03</span><div><h4>Vaardigheden checken</h4><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a>) en bestaande datasets op Hugging Face.</p></div></li>
-                <li><span class="dot">04</span><div><h4>Data verzamelen</h4><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div></li>
-                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw robot, tafel en blokjes.</p></div></li>
+                <li><span class="dot">03</span><div><h4>Model kiezen</h4><p>Per vaardigheid kiest de agent een voorgetraind basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a> of GR00T) en bestaande datasets op Hugging Face.</p></div></li>
+                <li><span class="dot">04</span><div><h4>Scenario's maken</h4><p>De agent bouwt de taak na in simulatie en genereert varianten: positie, licht, aantal blokjes. Zo ontstaat trainings- en testdata zonder dat iemand de taak voordoet.</p></div></li>
+                <li><span class="dot">05</span><div><h4>Bijtrainen</h4><p>Waar het basismodel nog tekortschiet, wordt het automatisch bijgetraind op de scenario's uit simulatie, voor jouw robot, tafel en blokjes.</p></div></li>
                 <li><span class="dot">06</span><div><h4>Testen in simulatie</h4><p>De robot doet de taak honderden keren virtueel.</p><span class="loop">↺ score te laag → terug naar stap 04 of 05</span></div></li>
                 <li class="safe"><span class="dot">07</span><div><h4>Veiligheidscheck</h4><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div></li>
                 <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte robot.</p></div></li>
@@ -203,12 +203,12 @@
     <div class="wrap">
       <div class="footer-top">
         <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+        <p class="footer-tag">Zeg het, en de robot doet het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Mushin lab is personal AGI voor de industrie: zeg je robot wat er moet gebeuren, de agents doen de rest, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>

@@ -52,7 +52,7 @@
         <span class="kicker"><span class="accent">Note 04</span> · MVP · Onderzoeksplan</span>
         <h1>Onderzoeksplan: de MVP</h1>
         <p class="dek">De MVP bewijst één ding: een opdracht in gewone taal wordt zonder handmatig programmeren een werkende robottaak, met een mens die de laatste stap goedkeurt.</p>
-        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>4 min</span></div>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>5 min</span></div>
       </div></div>
     </header>
 
@@ -74,7 +74,7 @@
         <section id="scope">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Een SO-101-arm met één camera leert gekleurde blokjes sorteren op basis van 50–100 demonstraties. We fine-tunen SmolVLA met LeRobot, laten een planner-agent de opdracht opsplitsen via MCP-tools, en zetten een veiligheidslaag met menselijke goedkeuring vóór de echte arm. Doel: minstens 80% van de blokjes in het juiste bakje.</p>
+            <p>Een SO-101-arm met één camera sorteert gekleurde blokjes op basis van alleen een opdracht in gewone taal. Een planner-agent splitst de opdracht op via MCP-tools, een voorgetraind SmolVLA-model voert de vaardigheden uit en wordt zo nodig bijgetraind in simulatie, en een veiligheidslaag met menselijke goedkeuring staat vóór de echte arm. Doel: minstens 80% van de blokjes in het juiste bakje.</p>
           </div>
           <h2><span class="n">1</span>Doel en scope</h2>
           <p>De MVP-opdracht:</p>
@@ -87,6 +87,7 @@
                 <li>Eén camera boven de werktafel</li>
                 <li>3 soorten blokjes, 3 bakjes</li>
                 <li>Vaste werktafel en verlichting</li>
+                <li>Geen menselijke demonstraties: alleen een opdracht in gewone taal</li>
               </ul>
             </div>
             <div>
@@ -95,8 +96,7 @@
                 <li>Echte producten</li>
                 <li>Meerdere robots</li>
                 <li>Bewegende transportbanden</li>
-                <li>Volledig automatisch trainen zonder menselijke demonstraties</li>
-              </ul>
+                              </ul>
             </div>
           </div>
           <p><strong>Gebruiker:</strong> de founder zelf, via een simpele webinterface of chat. De architectuur staat in <a href="systeemontwerp.html#architectuur">note 02, figuur 2</a>; wat LeRobot levert in <a href="lerobot.html">note 05</a>.</p>
@@ -115,9 +115,9 @@
                 <tr><td>Robotbesturing</td><td data-label="Keuze voor de MVP">LeRobot<a class="cite" href="#ref-5">5</a></td><td data-label="Waarom">Opnemen, trainen en draaien op de SO-101</td></tr>
                 <tr><td>Robotmodel (VLA)</td><td data-label="Keuze voor de MVP">SmolVLA, fine-tuned<a class="cite" href="#ref-1">1</a></td><td data-label="Waarom">Klein, traint op één GPU</td></tr>
                 <tr><td>Simulatie</td><td data-label="Keuze voor de MVP">MuJoCo of Isaac Lab<a class="cite" href="#ref-4">4</a></td><td data-label="Waarom">Testen en extra data zonder risico</td></tr>
-                <tr><td>Data</td><td data-label="Keuze voor de MVP">Hugging Face Hub (LeRobot-datasets)</td><td data-label="Waarom">Bestaande data + eigen opnames</td></tr>
+                <tr><td>Data</td><td data-label="Keuze voor de MVP">Hugging Face Hub (LeRobot-datasets)</td><td data-label="Waarom">Bestaande data + scenario's uit simulatie</td></tr>
                 <tr><td>Interface</td><td data-label="Keuze voor de MVP">Simpele webapp</td><td data-label="Waarom">Opdracht invoeren, resultaten zien, goedkeuren</td></tr>
-                <tr><td>Hardware</td><td data-label="Keuze voor de MVP">SO-101 arm (leader + follower), USB-camera, PC met NVIDIA-GPU of cloud-GPU</td><td data-label="Waarom">Goedkoop en goed ondersteund</td></tr>
+                <tr><td>Hardware</td><td data-label="Keuze voor de MVP">SO-101 arm, USB-camera, PC met NVIDIA-GPU of cloud-GPU</td><td data-label="Waarom">Goedkoop en goed ondersteund</td></tr>
               </tbody>
             </table>
           </div>
@@ -130,17 +130,17 @@
           <figure class="fig">
             <div class="fig-body">
               <ol class="process">
-                <li><span class="dot">1</span><div><span class="phase">Week 1–2</span><h4>Hardware en basis</h4><p>SO-101 bouwen en kalibreren, LeRobot installeren, met de leader-arm de follower handmatig besturen.</p><p class="gate"><b>Poort</b>De arm is te teleopereren en camerabeelden worden opgenomen.</p></div></li>
-                <li><span class="dot">2</span><div><span class="phase">Week 2–3</span><h4>Data verzamelen</h4><p>50–100 demonstraties opnemen van “pak blokje, leg in bakje”, per kleur, op de Hub zetten.</p><p class="gate"><b>Poort</b>Een schone dataset met alle drie de kleuren.</p></div></li>
-                <li><span class="dot">3</span><div><span class="phase">Week 3–5</span><h4>Model trainen</h4><p>SmolVLA fine-tunen op de dataset; eerst één kleur, dan alle drie.</p><p class="gate"><b>Poort</b>Minstens 70% geslaagde pogingen voor één kleur op de echte arm.</p></div></li>
+                <li><span class="dot">1</span><div><span class="phase">Week 1–2</span><h4>Hardware en basis</h4><p>SO-101 bouwen en kalibreren, LeRobot installeren, camera aansluiten.</p><p class="gate"><b>Poort</b>De arm is via LeRobot aan te sturen en camerabeelden komen binnen.</p></div></li>
+                <li><span class="dot">2</span><div><span class="phase">Week 2–3</span><h4>Simulatie opzetten</h4><p>Dezelfde opstelling in MuJoCo of Isaac Lab, met varianten in positie, licht en aantal blokjes.</p><p class="gate"><b>Poort</b>Een simulatie waarin de taak met alle drie de kleuren te testen is.</p></div></li>
+                <li><span class="dot">3</span><div><span class="phase">Week 3–5</span><h4>Voorgetraind model en bijtrainen</h4><p>Een voorgetraind SmolVLA de taak laten doen, zonder demonstraties; waar het tekortschiet bijtrainen op scenario's uit simulatie. Eerst één kleur, dan alle drie.</p><p class="gate"><b>Poort</b>Minstens 70% geslaagde pogingen voor één kleur op de echte arm.</p></div></li>
                 <li><span class="dot">4</span><div><span class="phase">Week 5–6</span><h4>Agentlaag</h4><p>MCP-tools maken (<code>detecteer_blokjes</code>, <code>voer_vaardigheid_uit</code>, <code>stop</code>), de planner laat de opdracht opsplitsen en tools aanroepen.</p><p class="gate"><b>Poort</b>“Sorteer alles” wordt automatisch een correcte reeks stappen.</p></div></li>
-                <li><span class="dot">5</span><div><span class="phase">Week 6–7</span><h4>Simulatie en evaluatie</h4><p>Dezelfde taak in MuJoCo of Isaac Lab, varianten genereren (positie, licht, aantal blokjes), automatisch scoren.</p><p class="gate"><b>Poort</b>Een testrapport per versie van het model.</p></div></li>
+                <li><span class="dot">5</span><div><span class="phase">Week 6–7</span><h4>Evaluatie</h4><p>Automatisch scoren, in simulatie en op de echte arm, voor elke nieuwe versie van het model.</p><p class="gate"><b>Poort</b>Een testrapport per versie van het model.</p></div></li>
                 <li class="safe"><span class="dot">6</span><div><span class="phase">Week 7–8</span><h4>Veiligheid, goedkeuring en demo</h4><p>Goedkeuringsscherm, limieten en noodstop, eindtest op de echte arm.</p><p class="gate"><b>Poort</b>De succescriteria in sectie 5 zijn gehaald.</p></div></li>
               </ol>
             </div>
             <figcaption><b>Figuur 1.</b> Fasering van de MVP in ongeveer acht weken, met per fase de poort om door te gaan.</figcaption>
           </figure>
-          <div class="note">De automatische lus “zoek data, genereer scenario's, train opnieuw” komt pas na de MVP: eerst moet het handmatige pad betrouwbaar werken.</div>
+          <div class="note">In deze MVP doet niemand de taak voor. De agents kiezen een voorgetraind model, maken zelf scenario's in simulatie en trainen zo nodig bij: precies wat een gebruiker later ook krijgt.</div>
         </section>
 
         <section id="veiligheid">
@@ -228,12 +228,12 @@
     <div class="wrap">
       <div class="footer-top">
         <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+        <p class="footer-tag">Zeg het, en de robot doet het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Mushin lab is personal AGI voor de industrie: zeg je robot wat er moet gebeuren, de agents doen de rest, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>

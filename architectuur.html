@@ -70,30 +70,30 @@
         <section id="onderdelen">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Het systeem is in tweeën gedeeld. Zo blijft de werkvloer draaien zonder internet, en gebruiken we onze GPU's alleen waar ze nodig zijn. Data verlaat de fabriek alleen om een nieuwe vaardigheid te trainen.</p>
+            <p>Het systeem is in tweeën gedeeld. Zo blijft de werkvloer draaien zonder internet, en gebruiken we onze GPU's alleen waar ze nodig zijn. Alleen een nieuwe taak leren gebeurt in de cloud.</p>
           </div>
           <h2><span class="n">1</span>De onderdelen</h2>
           <figure class="fig">
             <div class="fig-body">
-              <div class="split" role="img" aria-label="Twee kolommen: bij de klant de operator-interface, edge-computer, camera's met een leader-arm en de robot; in de Mushin lab cloud de planner-agent, trainingspipeline, simulatie en evaluatie en de vaardigheidsbibliotheek.">
+              <div class="split" role="img" aria-label="Twee kolommen: bij de klant de operator-interface, edge-computer, camera's en de robot; in de Mushin lab cloud de planner-agent, trainingspipeline, simulatie en evaluatie en de vaardigheidsbibliotheek.">
                 <div class="split-col">
                   <span class="kicker">Bij de klant · werken</span>
-                  <div class="arch-layer"><h4>Operator-interface</h4><p>Browser of tablet: opdracht geven, demonstraties starten, plan en testscore bekijken, goedkeuren</p></div>
+                  <div class="arch-layer"><h4>Operator-interface</h4><p>Browser of tablet: opdracht geven, plan en testscore bekijken, goedkeuren</p></div>
                   <div class="arch-layer arch-safety"><h4>Edge-computer</h4><p>PC of NVIDIA Jetson naast de robot: veiligheidslaag, LeRobot-runtime, inferentie van de getrainde policy, lokaal logboek</p></div>
-                  <div class="arch-layer"><h4>Camera's en demonstraties</h4><p>Waarnemen tijdens uitvoering; demonstraties opnemen tijdens het leren, bijvoorbeeld met een leader-arm</p></div>
+                  <div class="arch-layer"><h4>Camera's</h4><p>Waarnemen tijdens uitvoering: waar ligt wat, en gaat het goed</p></div>
                   <div class="arch-layer"><h4>Robot</h4><p>Voert de vaardigheid uit, ook als de verbinding wegvalt</p></div>
                 </div>
-                <div class="split-mid" aria-hidden="true"><span class="to-cloud">demo's</span><span class="to-edge">model</span></div>
+                <div class="split-mid" aria-hidden="true"><span class="to-cloud">opdracht</span><span class="to-edge">model</span></div>
                 <div class="split-col">
                   <span class="kicker">Mushin lab cloud · leren</span>
                   <div class="arch-layer"><h4>Planner-agent</h4><p>LLM via API: vertaalt de opdracht naar een plan en kiest basismodel en data</p></div>
-                  <div class="arch-layer"><h4>Trainingspipeline</h4><p>Onze GPU's: fine-tunet het basismodel op de demonstraties van de klant</p></div>
+                  <div class="arch-layer"><h4>Trainingspipeline</h4><p>Onze GPU's: traint het voorgetrainde basismodel bij op scenario's uit simulatie</p></div>
                   <div class="arch-layer"><h4>Simulatie en evaluatie</h4><p>Voert de taak honderden keren virtueel uit en maakt een testrapport</p></div>
                   <div class="arch-layer"><h4>Vaardigheidsbibliotheek</h4><p>Per klant afgeschermd: bewaart modellen, datasets en versies; eigendom van de klant</p></div>
                 </div>
               </div>
             </div>
-            <figcaption><b>Figuur 1.</b> Wat draait bij de klant en wat in de cloud. Demonstraties gaan versleuteld naar de cloud; het goedgekeurde model komt terug naar de edge-computer.</figcaption>
+            <figcaption><b>Figuur 1.</b> Wat draait bij de klant en wat in de cloud. De opdracht gaat naar de cloud; het goedgekeurde model komt versleuteld terug naar de edge-computer.</figcaption>
           </figure>
         </section>
 
@@ -103,9 +103,9 @@
             <div class="fig-body">
               <ol class="process">
                 <li><span class="dot">1</span><div><h4>Opdracht</h4><p>De operator typt de taak in de interface. De planner-agent in de cloud maakt er een plan van en zoekt in de bibliotheek of een passende vaardigheid al bestaat.</p></div></li>
-                <li><span class="dot">2</span><div><h4>Demonstraties</h4><p>Ontbreekt de vaardigheid, dan doet de operator de taak voor, bijvoorbeeld met een leader-arm. De edge-computer neemt camerabeelden en gewrichtsstanden op in het LeRobot-dataformaat.</p></div></li>
-                <li><span class="dot">3</span><div><h4>Upload</h4><p>De demonstraties gaan versleuteld naar de vaardigheidsbibliotheek van de klant in onze cloud. Dit is het enige moment waarop data de fabriek verlaat.</p></div></li>
-                <li><span class="dot">4</span><div><h4>Training</h4><p>De trainingspipeline fine-tunet het gekozen basismodel (zoals SmolVLA) op onze GPU's. De klant betaalt per trainingsrun.</p></div></li>
+                <li><span class="dot">2</span><div><h4>Model kiezen</h4><p>Ontbreekt de vaardigheid, dan kiest de agent een voorgetraind basismodel (zoals SmolVLA) en passende bestaande data. Niemand hoeft de taak voor te doen.</p></div></li>
+                <li><span class="dot">3</span><div><h4>Scenario's</h4><p>De agent bouwt de taak na in simulatie en genereert varianten in positie, licht en aantal objecten.</p></div></li>
+                <li><span class="dot">4</span><div><h4>Bijtrainen</h4><p>Waar nodig traint de trainingspipeline het basismodel bij op die scenario's, op onze GPU's. De klant betaalt per trainingsrun.</p></div></li>
                 <li><span class="dot">5</span><div><h4>Testen</h4><p>Simulatie en evaluatie draaien de taak honderden keren met variatie in positie, licht en aantal objecten, en leveren een testrapport met slagingspercentage.</p></div></li>
                 <li class="safe"><span class="dot">6</span><div><h4>Goedkeuring</h4><p>De operator ziet plan, testscore en modelversie in de interface en geeft akkoord. Zonder akkoord gebeurt er niets op de echte robot.</p></div></li>
                 <li><span class="dot">7</span><div><h4>Uitrol</h4><p>Het goedgekeurde model wordt naar de edge-computer gestuurd. Vanaf nu draait alles lokaal.</p></div></li>
@@ -122,7 +122,7 @@
           <div class="three">
             <div><h4>Werkt offline</h4><p>Een fabriek mag niet stilvallen omdat een verbinding wegvalt. Alleen een níeuwe taak leren vraagt internet.</p></div>
             <div><h4>Veiligheid lokaal en los van de AI</h4><p>De veiligheidslaag draait op de edge-computer en kent geen cloud; limieten en noodstop werken altijd, ook als de modellen falen.</p></div>
-            <div><h4>Data blijft van de klant</h4><p>De bibliotheek is per klant afgeschermd. Wat wij met demonstraties mogen doen, vraagt een expliciete afspraak.</p></div>
+            <div><h4>Data blijft van de klant</h4><p>De bibliotheek is per klant afgeschermd. Wat wij met data van de klant mogen doen, vraagt een expliciete afspraak.</p></div>
           </div>
           <p>Dat laatste is nog een open punt; zie de principes in <a href="over-ons.html#principes">Over ons</a>.</p>
         </section>
@@ -170,12 +170,12 @@
     <div class="wrap">
       <div class="footer-top">
         <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
-        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+        <p class="footer-tag">Zeg het, en de robot doet het.</p>
       </div>
       <div class="footer-grid">
         <div>
           <h4>Over</h4>
-          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Mushin lab is personal AGI voor de industrie: zeg je robot wat er moet gebeuren, de agents doen de rest, en het blijft van jou.</p>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
         </div>
         <div>
