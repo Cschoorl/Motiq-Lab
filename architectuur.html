@@ -70,7 +70,7 @@
         <section id="onderdelen">
           <div class="abstract">
             <span class="kicker">Samenvatting</span>
-            <p>Het systeem is in tweeën gedeeld. Zo blijft de werkvloer draaien zonder internet, en gebruiken we onze GPU's alleen waar ze nodig zijn. Alleen een nieuwe taak leren gebeurt in de cloud.</p>
+            <p>Het systeem is in tweeën gedeeld. Zo blijft de werkvloer draaien zonder internet, en gebruiken we onze GPU's alleen waar ze nodig zijn. Alleen de opdracht gaat naar de cloud: daar haalt de agent passende open-source modellen en data op.</p>
           </div>
           <h2><span class="n">1</span>De onderdelen</h2>
           <figure class="fig">
@@ -102,7 +102,7 @@
           <figure class="fig">
             <div class="fig-body">
               <ol class="process">
-                <li><span class="dot">1</span><div><h4>Opdracht</h4><p>De operator typt de taak in de interface. De planner-agent in de cloud maakt er een plan van en zoekt in de bibliotheek of een passende vaardigheid al bestaat.</p></div></li>
+                <li><span class="dot">1</span><div><h4>Opdracht</h4><p>De operator typt de taak in de interface. De planner-agent in de cloud maakt er een plan van en zoekt in de bibliotheek of een passende vaardigheid al bestaat. Alleen de opdracht (de prompt) gaat versleuteld naar onze cloud; daar haalt de agent passende open-source modellen en data op en koppelt ze aan de taak. Verder verlaat er standaard geen data de fabriek.</p></div></li>
                 <li><span class="dot">2</span><div><h4>Model kiezen</h4><p>Ontbreekt de vaardigheid, dan kiest de agent een voorgetraind basismodel (zoals SmolVLA) en passende bestaande data. Niemand hoeft de taak voor te doen.</p></div></li>
                 <li><span class="dot">3</span><div><h4>Scenario's</h4><p>De agent bouwt de taak na in simulatie en genereert varianten in positie, licht en aantal objecten.</p></div></li>
                 <li><span class="dot">4</span><div><h4>Bijtrainen</h4><p>Waar nodig traint de trainingspipeline het basismodel bij op die scenario's, op onze GPU's. De klant betaalt per trainingsrun.</p></div></li>
