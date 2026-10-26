@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Systeemontwerp: van opdracht naar robottaak · Mushin lab</title>
+  <meta name="description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
+  <meta property="og:title" content="Systeemontwerp: van opdracht naar robottaak · Mushin lab">
+  <meta property="og:description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
+  <meta property="og:site_name" content="Mushin lab">
+  <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="ml-header">
+      <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+      <nav aria-label="Hoofdmenu">
+        <ul class="ml-header__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+        <li><a href="research.html" aria-current="true">Onderzoek</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
+        </ul>
+      </nav>
+      <div class="ml-header__end">
+        <a class="ml-btn ml-btn--label" href="#contact">Contact</a>
+        <details class="menu">
+          <summary>Menu</summary>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html" aria-current="true">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    <header class="article-head">
+      <div class="wrap"><div class="inner">
+        <span class="kicker"><span class="accent">Note 02</span> · Systeem · Systeemontwerp</span>
+        <h1>Systeemontwerp: van opdracht naar robottaak</h1>
+        <p class="dek">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
+        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>4 min</span></div>
+      </div></div>
+    </header>
+
+    <div class="wrap article">
+      <aside class="toc" aria-label="Inhoud van deze pagina">
+        <span class="kicker">Inhoud</span>
+        <ol>
+          <li><a href="#overzicht"><span class="n">1</span>Overzicht</a></li>
+          <li><a href="#stappen"><span class="n">2</span>De tien stappen</a></li>
+          <li><a href="#architectuur"><span class="n">3</span>Architectuur</a></li>
+          <li><a href="#principe"><span class="n">4</span>Ontwerpprincipe</a></li>
+          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
+        </ol>
+      </aside>
+
+      <article class="content">
+        <section id="overzicht">
+          <div class="abstract">
+            <span class="kicker">Samenvatting</span>
+            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte robot.</p>
+          </div>
+          <h2><span class="n">1</span>Overzicht</h2>
+          <p>We gebruiken in deze note één doorlopend voorbeeld, ook de opdracht van de MVP:</p>
+          <p class="pull">Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.</p>
+        </section>
+
+        <section id="stappen">
+          <h2><span class="n">2</span>De tien stappen</h2>
+          <p>Van opdracht tot uitvoering doorloopt elke taak dezelfde tien stappen. Stap 7 en 8 vormen de veiligheidspoort: daar beslist niet het model, maar de veiligheidslaag en de mens.</p>
+          <figure class="fig">
+            <div class="fig-body">
+              <ol class="process">
+                <li><span class="dot">01</span><div><h4>Opdracht geven</h4><p>Je typt de opdracht in de webinterface, zonder code.</p></div></li>
+                <li><span class="dot">02</span><div><h4>Plan maken</h4><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
+                <li><span class="dot">03</span><div><h4>Vaardigheden checken</h4><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a>) en bestaande datasets op Hugging Face.</p></div></li>
+                <li><span class="dot">04</span><div><h4>Data verzamelen</h4><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div></li>
+                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw robot, tafel en blokjes.</p></div></li>
+                <li><span class="dot">06</span><div><h4>Testen in simulatie</h4><p>De robot doet de taak honderden keren virtueel.</p><span class="loop">↺ score te laag → terug naar stap 04 of 05</span></div></li>
+                <li class="safe"><span class="dot">07</span><div><h4>Veiligheidscheck</h4><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div></li>
+                <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte robot.</p></div></li>
+                <li><span class="dot">09</span><div><h4>Uitvoeren</h4><p>De camera kijkt mee en de agent stopt of probeert opnieuw bij een fout; de noodstop blijft altijd werken.</p></div></li>
+                <li><span class="dot">10</span><div><h4>Leren van fouten</h4><p>Elke run wordt gelogd en mislukte pogingen worden nieuwe trainingsdata.</p></div></li>
+              </ol>
+            </div>
+            <figcaption><b>Figuur 1.</b> De tien stappen van opdracht tot uitvoering. De veiligheidspoort (stap 07–08) is gemarkeerd; bij een te lage testscore gaat de lus terug naar data verzamelen of trainen.</figcaption>
+          </figure>
+        </section>
+
+        <section id="architectuur">
+          <h2><span class="n">3</span>Architectuur</h2>
+          <p>De architectuur bestaat uit vijf lagen, van boven naar beneden. Elke beweging gaat door de veiligheidslaag.</p>
+          <figure class="fig">
+            <div class="fig-body">
+              <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de robot met camera.">
+                <div class="arch-layer">
+                  <span class="kicker">Laag 1</span>
+                  <h4>Jij, via de webinterface</h4>
+                  <p>Opdracht in gewone taal.</p>
+                </div>
+                <div class="arch-arrow" aria-hidden="true"></div>
+                <div class="arch-layer">
+                  <span class="kicker">Laag 2</span>
+                  <h4>Planner-agent</h4>
+                  <p>Claude of Gemini Robotics ER.<a class="cite" href="#ref-2">2</a> Splitst de opdracht in vaardigheden en roept tools aan.</p>
+                </div>
+                <div class="arch-arrow" aria-hidden="true"></div>
+                <div class="arch-layer arch-tools">
+                  <span class="kicker">Laag 3</span>
+                  <h4>Tools via MCP</h4>
+                  <div class="arch-tools-grid">
+                    <div class="arch-tool"><h5>Waarneming</h5><p>Camera + objectdetectie: “waar ligt welk blokje?”</p></div>
+                    <div class="arch-tool"><h5>Vaardigheden</h5><p>SmolVLA-policy: “pak en plaats per kleur”</p></div>
+                    <div class="arch-tool"><h5>Training en simulatie</h5><p>LeRobot, MuJoCo of Isaac, data van Hugging Face</p></div>
+                  </div>
+                </div>
+                <div class="arch-arrow accent" aria-hidden="true"></div>
+                <div class="arch-layer arch-safety">
+                  <span class="kicker">Laag 4 · Veiligheidslaag</span>
+                  <h4>Harde limieten, noodstop en jouw goedkeuring</h4>
+                  <p>Bepaalt of een beweging op de echte robot mag.</p>
+                </div>
+                <div class="arch-arrow accent" aria-hidden="true"></div>
+                <div class="arch-layer">
+                  <span class="kicker">Laag 5</span>
+                  <h4>Robot en camera</h4>
+                  <p>In de MVP: de SO-101-arm.</p>
+                </div>
+              </div>
+            </div>
+            <figcaption><b>Figuur 2.</b> Architectuur in vijf lagen. De drie tools in laag 3 werken naast elkaar; alles wat naar de robot gaat, passeert eerst de veiligheidslaag.</figcaption>
+          </figure>
+        </section>
+
+        <section id="principe">
+          <h2><span class="n">4</span>Ontwerpprincipe</h2>
+          <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte robot mag. <strong>De agent stuurt nooit zelf motoren aan.</strong></p>
+          <p>Hoe we dit in acht weken bouwen, staat in <a href="mvp.html">note 04: Onderzoeksplan</a>. Wat er bij de klant draait en wat in de cloud, staat in <a href="architectuur.html">note 03: Architectuur</a>. De veiligheidslaag is uitgewerkt in <a href="veiligheid.html">note 06: Veiligheid als ontwerpprincipe</a>, en de rol van LeRobot in <a href="lerobot.html">note 05</a>.</p>
+        </section>
+
+        <section id="referenties">
+          <h2><span class="n">R</span>Referenties</h2>
+          <ol class="refs">
+            <li id="ref-1"><a href="https://huggingface.co/docs/lerobot/smolvla" target="_blank" rel="noopener">LeRobot SmolVLA</a> <span class="src">· Hugging Face</span><span class="why">Klein robotmodel (VLA) dat op één GPU traint.</span></li>
+            <li id="ref-2"><a href="https://ai.google.dev/gemini-api/docs/robotics-overview" target="_blank" rel="noopener">Gemini Robotics</a> <span class="src">· Google AI for Developers</span><span class="why">Optie voor de planner-agent.</span></li>
+          </ol>
+        </section>
+
+      </article>
+    </div>
+
+    <section class="related">
+      <div class="wrap">
+        <span class="section-label">Lees verder</span>
+        <ul class="cards">
+          <li class="card" data-cat="systeem">
+            <a href="architectuur.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">03</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Systeemontwerp</span>
+              <h3>Architectuur: wat draait waar</h3>
+              <p>Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="mvp">
+            <a href="mvp.html">
+              <div class="cover cover-mvp" aria-hidden="true"><span class="cover-no">04</span><span class="cover-lines"></span></div>
+              <span class="kicker">MVP · Onderzoeksplan</span>
+              <h3>Onderzoeksplan: de MVP</h3>
+              <p>Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+          <li class="card" data-cat="systeem">
+            <a href="lerobot.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">05</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Technische analyse</span>
+              <h3>Bouwen op LeRobot</h3>
+              <p>Wat de open-source bibliotheek van Hugging Face al levert, en waar onze eigen waarde zit.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="ml-logo" href="index.html" aria-label="Mushin lab, naar home"><img class="ml-logo-light" src="assets/mushin-lockup.svg" alt="" width="241" height="52"><img class="ml-logo-dark" src="assets/mushin-lockup-dark.svg" alt="" width="241" height="52"></a>
+        <p class="footer-tag">Laat het zien, en de robot leert het.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h4>Over</h4>
+          <p>Mushin lab is personal AGI voor de industrie: laat het je robot zien, hij leert het, en het blijft van jou.</p>
+          <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP.</p>
+        </div>
+        <div>
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
+            <li><a href="bronnen.html">Bronnen</a></li>
+          </ul>
+        </div>
+        <div id="contact">
+          <h4>Contact</h4>
+          <p>Founder, expert, investeerder of bedrijf met een taak voor een robot? Neem contact op.</p>
+          <!-- VUL HIER JE E-MAILADRES IN: vervang de span hieronder door bijv.
+               <a href="mailto:naam@domein.nl">naam@domein.nl</a> -->
+          <p><span class="placeholder">[jouw-e-mailadres]</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Mushin lab · Versie 0.1 · Idee en plan</div>
+    </div>
+  </footer>
+</body>
+</html>

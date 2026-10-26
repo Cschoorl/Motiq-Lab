@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aanpak · Mushin lab</title>
-  <meta name="description" content="De betekenis van de naam, missie en visie, principes, hypotheses en de route naar de maan van Mushin lab.">
-  <meta property="og:title" content="Aanpak · Mushin lab">
-  <meta property="og:description" content="De betekenis van de naam, missie en visie, principes, hypotheses en de route naar de maan van Mushin lab.">
+  <title>Over ons · Mushin lab</title>
+  <meta name="description" content="Wat mushin betekent, onze missie en visie, drie principes en de route naar de maan.">
+  <meta property="og:title" content="Over ons · Mushin lab">
+  <meta property="og:description" content="Wat mushin betekent, onze missie en visie, drie principes en de route naar de maan.">
   <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -25,9 +25,9 @@
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="aanpak.html" aria-current="page">Aanpak</a></li>
-        <li><a href="bronnen.html">Bronnen</a></li>
+        <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+        <li><a href="research.html">Onderzoek</a></li>
+        <li><a href="over-ons.html" aria-current="page">Over ons</a></li>
         </ul>
       </nav>
       <div class="ml-header__end">
@@ -36,9 +36,9 @@
           <summary>Menu</summary>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="aanpak.html" aria-current="page">Aanpak</a></li>
-            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html" aria-current="page">Over ons</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </details>
@@ -49,10 +49,10 @@
   <main id="inhoud">
     <header class="article-head">
       <div class="wrap"><div class="inner">
-        <span class="kicker">Aanpak</span>
+        <span class="kicker">Over ons</span>
         <h1>Personal AGI voor de industrie</h1>
         <p class="dek">Wij maken de fysieke wereld net zo vormbaar als software, door machines te leren met voordoen in plaats van programmeren.</p>
-        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Fase</b>Idee en plan</span></div>
+        <div class="byline"><span><b>Fase</b>Idee en plan</span></div>
       </div></div>
     </header>
 
@@ -63,9 +63,8 @@
           <li><a href="#naam"><span class="n">1</span>De naam</a></li>
           <li><a href="#missie"><span class="n">2</span>Missie en visie</a></li>
           <li><a href="#principes"><span class="n">3</span>Drie principes</a></li>
-          <li><a href="#hypotheses"><span class="n">4</span>Hypotheses</a></li>
-          <li><a href="#route"><span class="n">5</span>Route naar de maan</a></li>
-          <li><a href="#nu"><span class="n">6</span>Waar we nu staan</a></li>
+          <li><a href="#route"><span class="n">4</span>Route naar de maan</a></li>
+          <li><a href="#nu"><span class="n">5</span>Waar we nu staan</a></li>
           <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
         </ol>
       </aside>
@@ -107,25 +106,8 @@
           <div class="note"><strong>Open punt.</strong> Demonstraties gaan voor het trainen naar onze GPU's, dus "jouw bezit" vraagt heldere afspraken over wat wij met die data mogen.</div>
         </section>
 
-        <section id="hypotheses">
-          <h2><span class="n">4</span>Hypotheses en hoe we ze toetsen</h2>
-          <p>Elke hypothese heeft vooraf een maatstaf. De getallen zijn startdoelen die we na de eerste tests kunnen bijstellen.</p>
-          <div class="table">
-            <span class="kicker">Tabel 1 · Hypotheses</span>
-            <table>
-              <thead><tr><th scope="col">Hypothese</th><th scope="col">Toets</th><th scope="col">Geslaagd als</th><th scope="col">Status</th></tr></thead>
-              <tbody>
-                <tr><td>H1 · Er is een eerste toepassing die bedrijven als echt probleem ervaren</td><td data-label="Toets">10 gesprekken met bedrijven (<a href="validatie.html">note 11</a>)</td><td data-label="Geslaagd als">Minstens de helft noemt het een echt probleem; anders een andere eerste toepassing</td><td data-label="Status">Nog niet getest</td></tr>
-                <tr><td>H2 · Een robot leert de taak uit demonstraties</td><td data-label="Toets">SmolVLA fine-tunen op 50–100 demonstraties per kleur (<a href="mvp.html#fasering">note 04</a>)</td><td data-label="Geslaagd als">Minstens 70% geslaagde pogingen voor één kleur op de echte arm</td><td data-label="Status">Nog niet getest</td></tr>
-                <tr><td>H3 · Gewone taal wordt automatisch een correct plan</td><td data-label="Toets">Planner-agent met MCP-tools (<a href="mvp.html#fasering">note 04</a>)</td><td data-label="Geslaagd als">“Sorteer alles” wordt automatisch een correcte reeks stappen</td><td data-label="Status">Nog niet getest</td></tr>
-                <tr><td>H4 · Het werkt betrouwbaar genoeg</td><td data-label="Toets">Eindtest op de echte arm (<a href="mvp.html#succes">note 04</a>)</td><td data-label="Geslaagd als">Minstens 80% van de blokjes in het juiste bakje over 20 testrondes, ook bij nieuwe posities zonder opnieuw trainen</td><td data-label="Status">Nog niet getest</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
         <section id="route">
-          <h2><span class="n">5</span>Route naar de maan</h2>
+          <h2><span class="n">4</span>Route naar de maan</h2>
           <p>We werken terug van de ster naar wat we nu doen; elke stap maakt de volgende geloofwaardig.</p>
           <figure class="fig">
             <div class="fig-body">
@@ -142,7 +124,7 @@
         </section>
 
         <section id="nu">
-          <h2><span class="n">6</span>Waar we nu staan</h2>
+          <h2><span class="n">5</span>Waar we nu staan</h2>
           <p>Fase: idee en plan. Nog geen klantgesprekken of werkende MVP. De eerstvolgende stappen:</p>
           <ul class="boxes">
             <li>10 gesprekken met bedrijven voeren om de eerste toepassing te kiezen</li>
@@ -182,8 +164,9 @@
           <h4>Pagina's</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
             <li><a href="bronnen.html">Bronnen</a></li>
           </ul>
         </div>

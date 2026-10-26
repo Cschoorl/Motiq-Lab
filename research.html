@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research · Mushin lab</title>
-  <meta name="description" content="Alle research notes van Mushin lab: probleem, systeemontwerp, MVP, veiligheid, markt en validatie.">
-  <meta property="og:title" content="Research · Mushin lab">
-  <meta property="og:description" content="Alle research notes van Mushin lab: probleem, systeemontwerp, MVP, veiligheid, markt en validatie.">
+  <title>Onderzoek · Mushin lab</title>
+  <meta name="description" content="Het onderzoek achter Mushin lab: wat we willen aantonen en elf research notes met bronnen.">
+  <meta property="og:title" content="Onderzoek · Mushin lab">
+  <meta property="og:description" content="Het onderzoek achter Mushin lab: wat we willen aantonen en elf research notes met bronnen.">
   <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -25,9 +25,9 @@
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="research.html" aria-current="page">Research</a></li>
-        <li><a href="aanpak.html">Aanpak</a></li>
-        <li><a href="bronnen.html">Bronnen</a></li>
+        <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+        <li><a href="research.html" aria-current="page">Onderzoek</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
         </ul>
       </nav>
       <div class="ml-header__end">
@@ -36,9 +36,9 @@
           <summary>Menu</summary>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html" aria-current="page">Research</a></li>
-            <li><a href="aanpak.html">Aanpak</a></li>
-            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html" aria-current="page">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </details>
@@ -47,17 +47,51 @@
   </header>
 
   <main id="inhoud">
-    <header class="article-head">
-      <div class="wrap"><div class="inner">
-        <span class="kicker">Research</span>
-        <h1>Research notes</h1>
-        <p class="dek">Werkdocumenten over hoe een robot een taak leert door het een paar keer te laten zien: het probleem, het systeemontwerp, het MVP-plan, veiligheid, de markt en validatie. Elke note vermeldt haar bronnen.</p>
-        <div class="byline"><span><b>Notes</b>11</span><span><b>Bronnen</b>34</span><span><b>Versie</b>0.1</span></div>
-      </div></div>
-    </header>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="ml-tagline"><span class="ml-tag">Onderzoek</span><span class="ml-tag__date">11 notes · 34 bronnen</span></span>
+        <h1>Het onderzoek achter Mushin lab</h1>
+        <p class="dek">Elke keuze staat uitgewerkt in een korte note: het probleem, hoe het systeem werkt, het prototype, veiligheid, de markt en hoe we het toetsen. Met bronnen.</p>
+      </div>
+    </section>
+
+    <section class="band band-tight" id="hypotheses">
+      <div class="wrap">
+        <span class="section-label">Wat we willen aantonen</span>
+        <h2 class="section-title">Vier vragen</h2>
+        <p class="section-intro">Geen ervan is al getest. Elke vraag heeft vooraf een maatstaf; de getallen zijn startdoelen.</p>
+        <ol class="hypotheses">
+          <li>
+            <span class="kicker">H1 · Probleem</span>
+            <h3>Is er een eerste toepassing die bedrijven echt als probleem zien?</h3>
+            <p>10 gesprekken met bedrijven. Noemt minder dan de helft het een echt probleem, dan kiezen we een andere eerste toepassing.</p>
+            <span class="status">Nog niet getest</span>
+          </li>
+          <li>
+            <span class="kicker">H2 · Leren</span>
+            <h3>Leert een robot de taak uit demonstraties?</h3>
+            <p>Een bijgetraind model haalt minstens 70% geslaagde pogingen voor één kleur op de echte arm van het prototype.</p>
+            <span class="status">Nog niet getest</span>
+          </li>
+          <li>
+            <span class="kicker">H3 · Plannen</span>
+            <h3>Wordt gewone taal vanzelf een correct plan?</h3>
+            <p>“Sorteer alles” wordt zonder programmeren een correcte reeks stappen.</p>
+            <span class="status">Nog niet getest</span>
+          </li>
+          <li>
+            <span class="kicker">H4 · Betrouwbaarheid</span>
+            <h3>Werkt het betrouwbaar genoeg?</h3>
+            <p>Minstens 80% van de blokjes in het juiste bakje over 20 testrondes, ook op nieuwe posities zonder opnieuw trainen.</p>
+            <span class="status">Nog niet getest</span>
+          </li>
+        </ol>
+      </div>
+    </section>
 
     <section class="index">
       <div class="wrap">
+        <span class="section-label center-label">Research notes</span>
         <div class="filters" role="group" aria-label="Filter op onderwerp">
           <input type="radio" name="filter" id="f-alles" checked><label for="f-alles">Alles</label>
           <input type="radio" name="filter" id="f-systeem"><label for="f-systeem">Systeem</label>
@@ -76,7 +110,7 @@
             </a>
           </li>
           <li class="card" data-cat="systeem">
-            <a href="hoe-het-werkt.html">
+            <a href="systeemontwerp.html">
               <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
               <span class="kicker">Systeem · Systeemontwerp</span>
               <h3>Systeemontwerp: van opdracht naar robottaak</h3>
@@ -167,7 +201,7 @@
           </li>
           </ul>
         </div>
-        <div class="note center">Alle bronnen van alle notes staan samen op de pagina <a href="bronnen.html">Bronnen</a>. Hoe de notes samenhangen, lees je in <a href="aanpak.html">Aanpak</a>.</div>
+        <div class="note center">Alle bronnen staan samen op de pagina <a href="bronnen.html">Bronnen</a>.</div>
       </div>
     </section>
   </main>
@@ -188,8 +222,9 @@
           <h4>Pagina's</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
             <li><a href="bronnen.html">Bronnen</a></li>
           </ul>
         </div>

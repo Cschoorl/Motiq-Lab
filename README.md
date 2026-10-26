@@ -7,11 +7,12 @@ De stijl volgt het Mushin-Lab design system (brandguide v3): kleuren, letters (Q
 | Pagina | Bestand |
 | --- | --- |
 | Home | `index.html` |
-| Research (overzicht van alle notes, met filter) | `research.html` |
-| Aanpak (naam, missie en visie, principes, hypotheses, route naar de maan) | `aanpak.html` |
+| Hoe het werkt | `hoe-het-werkt.html` |
+| Onderzoek (vier vragen en alle notes, met filter) | `research.html` |
+| Over ons (naam, missie en visie, principes, route naar de maan) | `over-ons.html` |
 | Bronnen (alle 34 bronnen) | `bronnen.html` |
 | Note 01 · Het probleem en de oplossing | `probleem.html` |
-| Note 02 · Systeemontwerp | `hoe-het-werkt.html` |
+| Note 02 · Systeemontwerp | `systeemontwerp.html` |
 | Note 03 · Architectuur: wat draait waar | `architectuur.html` |
 | Note 04 · Onderzoeksplan MVP | `mvp.html` |
 | Note 05 · Bouwen op LeRobot | `lerobot.html` |

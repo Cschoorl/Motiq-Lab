@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Systeemontwerp: van opdracht naar robottaak · Mushin lab</title>
-  <meta name="description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
-  <meta property="og:title" content="Systeemontwerp: van opdracht naar robottaak · Mushin lab">
-  <meta property="og:description" content="Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.">
+  <title>Hoe het werkt · Mushin lab</title>
+  <meta name="description" content="Beschrijf de taak, laat het een paar keer zien en geef akkoord. Zo leert een robot bij Mushin lab een nieuwe taak.">
+  <meta property="og:title" content="Hoe het werkt · Mushin lab">
+  <meta property="og:description" content="Beschrijf de taak, laat het een paar keer zien en geef akkoord. Zo leert een robot bij Mushin lab een nieuwe taak.">
   <meta property="og:site_name" content="Mushin lab">
   <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)">
@@ -25,9 +25,9 @@
       <nav aria-label="Hoofdmenu">
         <ul class="ml-header__nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="research.html" aria-current="true">Research</a></li>
-        <li><a href="aanpak.html">Aanpak</a></li>
-        <li><a href="bronnen.html">Bronnen</a></li>
+        <li><a href="hoe-het-werkt.html" aria-current="page">Hoe het werkt</a></li>
+        <li><a href="research.html">Onderzoek</a></li>
+        <li><a href="over-ons.html">Over ons</a></li>
         </ul>
       </nav>
       <div class="ml-header__end">
@@ -36,9 +36,9 @@
           <summary>Menu</summary>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html" aria-current="true">Research</a></li>
-            <li><a href="aanpak.html">Aanpak</a></li>
-            <li><a href="bronnen.html">Bronnen</a></li>
+            <li><a href="hoe-het-werkt.html" aria-current="page">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </details>
@@ -47,146 +47,129 @@
   </header>
 
   <main id="inhoud">
-    <header class="article-head">
-      <div class="wrap"><div class="inner">
-        <span class="kicker"><span class="accent">Note 02</span> · Systeem · Systeemontwerp</span>
-        <h1>Systeemontwerp: van opdracht naar robottaak</h1>
-        <p class="dek">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
-        <div class="byline"><span><b>Door</b>Mushin lab</span><span><b>Versie</b>0.1</span><span><b>Datum</b>Oktober 2026</span><span><b>Leestijd</b>4 min</span></div>
-      </div></div>
-    </header>
-
-    <div class="wrap article">
-      <aside class="toc" aria-label="Inhoud van deze pagina">
-        <span class="kicker">Inhoud</span>
-        <ol>
-          <li><a href="#overzicht"><span class="n">1</span>Overzicht</a></li>
-          <li><a href="#stappen"><span class="n">2</span>De tien stappen</a></li>
-          <li><a href="#architectuur"><span class="n">3</span>Architectuur</a></li>
-          <li><a href="#principe"><span class="n">4</span>Ontwerpprincipe</a></li>
-          <li><a href="#referenties"><span class="n">R</span>Referenties</a></li>
-          <li><a href="#citeren"><span class="n">C</span>Citeren</a></li>
-        </ol>
-      </aside>
-
-      <article class="content">
-        <section id="overzicht">
-          <div class="abstract">
-            <span class="kicker">Samenvatting</span>
-            <p>Een gebruiker beschrijft een taak in gewone taal en doet hem een paar keer voor. Agents plannen de taak, zoeken basismodellen en data, trainen en testen in simulatie, en vragen pas daarna om goedkeuring. Pas na een menselijke klik draait het op de echte robot.</p>
-          </div>
-          <h2><span class="n">1</span>Overzicht</h2>
-          <p>We gebruiken in deze note één doorlopend voorbeeld, ook de opdracht van de MVP:</p>
-          <p class="pull">Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.</p>
-        </section>
-
-        <section id="stappen">
-          <h2><span class="n">2</span>De tien stappen</h2>
-          <p>Van opdracht tot uitvoering doorloopt elke taak dezelfde tien stappen. Stap 7 en 8 vormen de veiligheidspoort: daar beslist niet het model, maar de veiligheidslaag en de mens.</p>
-          <figure class="fig">
-            <div class="fig-body">
-              <ol class="process">
-                <li><span class="dot">01</span><div><h4>Opdracht geven</h4><p>Je typt de opdracht in de webinterface, zonder code.</p></div></li>
-                <li><span class="dot">02</span><div><h4>Plan maken</h4><p>De planner splitst de opdracht in vaardigheden: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
-                <li><span class="dot">03</span><div><h4>Vaardigheden checken</h4><p>Ontbreekt er een vaardigheid, dan zoekt de agent een basismodel (zoals SmolVLA<a class="cite" href="#ref-1">1</a>) en bestaande datasets op Hugging Face.</p></div></li>
-                <li><span class="dot">04</span><div><h4>Data verzamelen</h4><p>In de MVP doe je de beweging 50–100 keer voor met de leader-arm. Later genereert het systeem extra varianten in simulatie (positie, licht, aantal blokjes).</p></div></li>
-                <li><span class="dot">05</span><div><h4>Trainen</h4><p>Het basismodel wordt bijgetraind op jouw robot, tafel en blokjes.</p></div></li>
-                <li><span class="dot">06</span><div><h4>Testen in simulatie</h4><p>De robot doet de taak honderden keren virtueel.</p><span class="loop">↺ score te laag → terug naar stap 04 of 05</span></div></li>
-                <li class="safe"><span class="dot">07</span><div><h4>Veiligheidscheck</h4><p>Elke beweging moet binnen de werkruimte en snelheidslimiet blijven; de agent kan alleen goedgekeurde functies aanroepen.</p></div></li>
-                <li class="safe"><span class="dot">08</span><div><h4>Goedkeuren</h4><p>Je ziet plan, testscore en modelversie; pas na jouw klik draait het op de echte robot.</p></div></li>
-                <li><span class="dot">09</span><div><h4>Uitvoeren</h4><p>De camera kijkt mee en de agent stopt of probeert opnieuw bij een fout; de noodstop blijft altijd werken.</p></div></li>
-                <li><span class="dot">10</span><div><h4>Leren van fouten</h4><p>Elke run wordt gelogd en mislukte pogingen worden nieuwe trainingsdata.</p></div></li>
-              </ol>
-            </div>
-            <figcaption><b>Figuur 1.</b> De tien stappen van opdracht tot uitvoering. De veiligheidspoort (stap 07–08) is gemarkeerd; bij een te lage testscore gaat de lus terug naar data verzamelen of trainen.</figcaption>
-          </figure>
-        </section>
-
-        <section id="architectuur">
-          <h2><span class="n">3</span>Architectuur</h2>
-          <p>De architectuur bestaat uit vijf lagen, van boven naar beneden. Elke beweging gaat door de veiligheidslaag.</p>
-          <figure class="fig">
-            <div class="fig-body">
-              <div class="arch" role="img" aria-label="Architectuurschema in vijf lagen: jij via de webinterface, de planner-agent, drie tools via MCP (waarneming, vaardigheden, training en simulatie), de veiligheidslaag en de robot met camera.">
-                <div class="arch-layer">
-                  <span class="kicker">Laag 1</span>
-                  <h4>Jij, via de webinterface</h4>
-                  <p>Opdracht in gewone taal.</p>
-                </div>
-                <div class="arch-arrow" aria-hidden="true"></div>
-                <div class="arch-layer">
-                  <span class="kicker">Laag 2</span>
-                  <h4>Planner-agent</h4>
-                  <p>Claude of Gemini Robotics ER.<a class="cite" href="#ref-2">2</a> Splitst de opdracht in vaardigheden en roept tools aan.</p>
-                </div>
-                <div class="arch-arrow" aria-hidden="true"></div>
-                <div class="arch-layer arch-tools">
-                  <span class="kicker">Laag 3</span>
-                  <h4>Tools via MCP</h4>
-                  <div class="arch-tools-grid">
-                    <div class="arch-tool"><h5>Waarneming</h5><p>Camera + objectdetectie: “waar ligt welk blokje?”</p></div>
-                    <div class="arch-tool"><h5>Vaardigheden</h5><p>SmolVLA-policy: “pak en plaats per kleur”</p></div>
-                    <div class="arch-tool"><h5>Training en simulatie</h5><p>LeRobot, MuJoCo of Isaac, data van Hugging Face</p></div>
-                  </div>
-                </div>
-                <div class="arch-arrow accent" aria-hidden="true"></div>
-                <div class="arch-layer arch-safety">
-                  <span class="kicker">Laag 4 · Veiligheidslaag</span>
-                  <h4>Harde limieten, noodstop en jouw goedkeuring</h4>
-                  <p>Bepaalt of een beweging op de echte robot mag.</p>
-                </div>
-                <div class="arch-arrow accent" aria-hidden="true"></div>
-                <div class="arch-layer">
-                  <span class="kicker">Laag 5</span>
-                  <h4>Robot en camera</h4>
-                  <p>In de MVP: de SO-101-arm.</p>
-                </div>
-              </div>
-            </div>
-            <figcaption><b>Figuur 2.</b> Architectuur in vijf lagen. De drie tools in laag 3 werken naast elkaar; alles wat naar de robot gaat, passeert eerst de veiligheidslaag.</figcaption>
-          </figure>
-        </section>
-
-        <section id="principe">
-          <h2><span class="n">4</span>Ontwerpprincipe</h2>
-          <p>De agent beslist wát er gebeurt, de tools doen het werk, en de veiligheidslaag bepaalt of het op de echte robot mag. <strong>De agent stuurt nooit zelf motoren aan.</strong></p>
-          <p>Hoe we dit in acht weken bouwen, staat in <a href="mvp.html">note 04: Onderzoeksplan</a>. Wat er bij de klant draait en wat in de cloud, staat in <a href="architectuur.html">note 03: Architectuur</a>. De veiligheidslaag is uitgewerkt in <a href="veiligheid.html">note 06: Veiligheid als ontwerpprincipe</a>, en de rol van LeRobot in <a href="lerobot.html">note 05</a>.</p>
-        </section>
-
-        <section id="referenties">
-          <h2><span class="n">R</span>Referenties</h2>
-          <ol class="refs">
-            <li id="ref-1"><a href="https://huggingface.co/docs/lerobot/smolvla" target="_blank" rel="noopener">LeRobot SmolVLA</a> <span class="src">· Hugging Face</span><span class="why">Klein robotmodel (VLA) dat op één GPU traint.</span></li>
-            <li id="ref-2"><a href="https://ai.google.dev/gemini-api/docs/robotics-overview" target="_blank" rel="noopener">Gemini Robotics</a> <span class="src">· Google AI for Developers</span><span class="why">Optie voor de planner-agent.</span></li>
-          </ol>
-        </section>
-
-        <section id="citeren">
-          <h2><span class="n">C</span>Citeer deze note</h2>
-          <p class="citation">Mushin lab (2026). <em>Systeemontwerp: van opdracht naar robottaak</em>. Research note 02, versie 0.1. https://cschoorl.github.io/Motiq-Lab/hoe-het-werkt.html</p>
-        </section>
-      </article>
-    </div>
-
-    <section class="related">
+    <section class="page-hero">
       <div class="wrap">
-        <span class="section-label">Verder lezen</span>
+        <span class="ml-tagline"><span class="ml-tag">Hoe het werkt</span></span>
+        <h1>Van opdracht tot werkende robot</h1>
+        <p class="dek">De agent is de projectleider, de modellen zijn de vakmensen, de simulatie is de oefenruimte en jij tekent voor akkoord.</p>
+      </div>
+    </section>
+
+    <section class="band band-tight">
+      <div class="wrap">
+        <span class="section-label">Taakverdeling</span>
+        <h2 class="section-title">Wat jij doet, wat de agents doen</h2>
+        <div class="roles">
+          <div class="ml-card">
+            <span class="ml-card__eyebrow">jij</span>
+            <h3 class="ml-card__title">Drie dingen</h3>
+            <ul class="boxes">
+              <li>Je typt de opdracht in gewone taal.</li>
+              <li>Je doet de taak een paar keer voor.</li>
+              <li>Je bekijkt plan, testscore en versie, en geeft akkoord.</li>
+            </ul>
+          </div>
+          <div class="ml-card ml-card--agent">
+            <span class="ml-card__eyebrow">de agents</span>
+            <h3 class="ml-card__title">De rest</h3>
+            <ul class="boxes">
+              <li>Ze splitsen de opdracht op in vaardigheden.</li>
+              <li>Ze zoeken een passend robotmodel en bestaande data.</li>
+              <li>Ze trainen het model op jouw voorbeelden.</li>
+              <li>Ze testen de taak honderden keren in simulatie.</li>
+              <li>Ze controleren of elke beweging binnen de veiligheidsgrenzen blijft.</li>
+              <li>Ze leren van fouten: mislukte pogingen worden nieuwe trainingsdata.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <span class="section-label">Stap voor stap</span>
+        <h2 class="section-title">Zo leert de robot een nieuwe taak</h2>
+        <p class="section-intro">Voorbeeld: “Sorteer de rode, blauwe en groene blokjes in de juiste bakjes.”</p>
+        <ol class="journey">
+          <li><span class="journey-no">1</span><div><h3>Opdracht</h3><p>Je typt de taak in de webinterface, zonder code. De agent maakt er een plan van: blokjes zoeken, kleur herkennen, pakken, naar het juiste bakje bewegen, loslaten, herhalen tot de tafel leeg is.</p></div></li>
+          <li><span class="journey-no">2</span><div><h3>Voordoen</h3><p>Kan de robot iets nog niet, dan doe je het voor. In het eerste prototype is dat 50 tot 100 keer per beweging.</p></div></li>
+          <li><span class="journey-no">3</span><div><h3>Trainen en testen</h3><p>Op onze GPU's wordt een basismodel bijgetraind op jouw voorbeelden. Daarna doet de robot de taak honderden keren virtueel, met variatie in positie, licht en aantal objecten. Is de score te laag, dan gaat het terug naar voordoen of trainen.</p></div></li>
+          <li class="journey-key"><span class="journey-no">4</span><div><h3>Jouw akkoord</h3><p>Je ziet het plan, de testscore en de modelversie. Zonder jouw klik gebeurt er niets op de echte robot.</p></div></li>
+          <li><span class="journey-no">5</span><div><h3>Aan het werk</h3><p>Het goedgekeurde model draait op een computer naast de robot. De camera kijkt mee, de veiligheidslaag bewaakt elke beweging, en de robot blijft werken als het internet wegvalt.</p></div></li>
+          <li><span class="journey-no">6</span><div><h3>Steeds beter</h3><p>Elke run wordt gelogd. Mislukte pogingen kunnen, als jij dat wilt, nieuwe trainingsdata worden voor de volgende versie.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band band-alt">
+      <div class="wrap">
+        <span class="section-label">Wat draait waar</span>
+        <h2 class="section-title">Werken bij jou, leren bij ons</h2>
+        <p class="section-intro">Zo blijft je werkvloer draaien zonder internet. Data verlaat de fabriek alleen om een nieuwe taak te leren.</p>
+        <div class="where">
+          <div class="ml-card">
+            <span class="ml-card__eyebrow">bij jou</span>
+            <h3 class="ml-card__title">Alles om te werken</h3>
+            <ul class="ticks">
+              <li>De interface op een browser of tablet</li>
+              <li>Een computer naast de robot, met de veiligheidslaag</li>
+              <li>Camera's en de robot zelf</li>
+              <li>Een lokaal logboek</li>
+            </ul>
+          </div>
+          <div class="where-arrow" aria-hidden="true"><span class="to-cloud">demonstraties</span><span class="to-edge">getraind model</span></div>
+          <div class="ml-card">
+            <span class="ml-card__eyebrow">in onze cloud</span>
+            <h3 class="ml-card__title">Alles om te leren</h3>
+            <ul class="ticks">
+              <li>De agent die het plan maakt</li>
+              <li>Training op onze GPU's</li>
+              <li>Simulatie en testrapport</li>
+              <li>Jouw vaardigheidsbibliotheek, alleen voor jou</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <span class="section-label">Veiligheid</span>
+        <h2 class="section-title">De AI stuurt nooit zelf motoren aan</h2>
+        <p class="section-intro">Veiligheid zit buiten de AI-modellen: geen model mag een beweging uitvoeren die de veiligheidslaag niet toestaat.</p>
+        <ul class="benefits">
+          <li class="ml-card"><h3 class="ml-card__title">Harde limieten</h3><p class="ml-card__body">Maximale snelheid, kracht en een vaste werkruimte waar de robot niet buiten mag.</p></li>
+          <li class="ml-card"><h3 class="ml-card__title">Noodstop</h3><p class="ml-card__body">Een fysieke knop die de stroom naar de motoren onderbreekt. Die werkt altijd.</p></li>
+          <li class="ml-card"><h3 class="ml-card__title">Alleen vaste functies</h3><p class="ml-card__body">De agent kan alleen goedgekeurde functies aanroepen, nooit vrije motorcommando's sturen.</p></li>
+          <li class="ml-card"><h3 class="ml-card__title">Jouw akkoord</h3><p class="ml-card__body">Pas na jouw klik draait een nieuwe versie op de echte robot.</p></li>
+          <li class="ml-card"><h3 class="ml-card__title">Logboek</h3><p class="ml-card__body">Elke opdracht, elk plan en elke uitvoering wordt bewaard, zodat je fouten kunt terugzien.</p></li>
+          <li class="ml-card"><h3 class="ml-card__title">Lokaal</h3><p class="ml-card__body">De veiligheidslaag draait bij jou en heeft geen cloud nodig, ook als een model faalt.</p></li>
+        </ul>
+        <p class="center"><a class="more" href="veiligheid.html">Lees de uitwerking, met normen</a></p>
+      </div>
+    </section>
+
+    <section class="band band-alt">
+      <div class="wrap">
+        <span class="section-label">Verdieping</span>
+        <h2 class="section-title">De techniek, uitgewerkt</h2>
+        <p class="section-intro">Wil je weten welke modellen, tools en hardware we gebruiken? Dat staat in het onderzoek.</p>
         <ul class="cards">
+          <li class="card" data-cat="systeem">
+            <a href="systeemontwerp.html">
+              <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">02</span><span class="cover-lines"></span></div>
+              <span class="kicker">Systeem · Systeemontwerp</span>
+              <h3>Systeemontwerp: van opdracht naar robottaak</h3>
+              <p>Tien stappen van opdracht in gewone taal tot uitvoering op de echte robot, en de architectuur in vijf lagen.</p>
+              <span class="more">Lees de note</span>
+            </a>
+          </li>
           <li class="card" data-cat="systeem">
             <a href="architectuur.html">
               <div class="cover cover-systeem" aria-hidden="true"><span class="cover-no">03</span><span class="cover-lines"></span></div>
               <span class="kicker">Systeem · Systeemontwerp</span>
               <h3>Architectuur: wat draait waar</h3>
               <p>Werken bij de klant, leren in de cloud: de onderdelen, de stroom van opdracht tot robot en drie ontwerpkeuzes.</p>
-              <span class="more">Lees de note</span>
-            </a>
-          </li>
-          <li class="card" data-cat="mvp">
-            <a href="mvp.html">
-              <div class="cover cover-mvp" aria-hidden="true"><span class="cover-no">04</span><span class="cover-lines"></span></div>
-              <span class="kicker">MVP · Onderzoeksplan</span>
-              <h3>Onderzoeksplan: de MVP</h3>
-              <p>Scope, techstack, fasering in acht weken en succescriteria van het eerste prototype.</p>
               <span class="more">Lees de note</span>
             </a>
           </li>
@@ -200,6 +183,14 @@
             </a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Benieuwd of dit werkt voor jouw taak?</h2>
+        <p>We zoeken bedrijven om de eerste toepassing mee te kiezen.</p>
+        <div class="cta-row"><a class="primary" href="#contact">Neem contact op</a></div>
       </div>
     </section>
   </main>
@@ -220,8 +211,9 @@
           <h4>Pagina's</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="aanpak.html">Aanpak</a></li>
+            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
+            <li><a href="research.html">Onderzoek</a></li>
+            <li><a href="over-ons.html">Over ons</a></li>
             <li><a href="bronnen.html">Bronnen</a></li>
           </ul>
         </div>
